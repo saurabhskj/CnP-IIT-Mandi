@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DataSourceManagerImpl" format="xml" hash="524571199">
+    <data-source source="LOCAL" name="Rails cnp-web: development" uuid="66ded171-967d-4592-9408-23eab2b87fff">
+      <driver-ref>postgresql</driver-ref>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql:cnp-web_development</jdbc-url>
+      <user-name>cnpadmin</user-name>
+      <user-password>dfcbdfcedfc7dfc3dfc4dff5dfc3dfc3dfdedfc7dfcbdfc4dfcedfc3</user-password>
+      <libraries />
+    </data-source>
+    <data-source source="LOCAL" name="Rails cnp-web: test" uuid="dba37448-1c2a-43a9-b975-bfc748866c6f">
+      <driver-ref>postgresql</driver-ref>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql:cnp-web_test</jdbc-url>
+      <user-name>cnpadmin</user-name>
+      <user-password>dfcbdfcedfc7dfc3dfc4dff5dfc3dfc3dfdedfc7dfcbdfc4dfcedfc3</user-password>
+      <libraries />
+    </data-source>
+    <data-source source="LOCAL" name="Rails cnp-web: production" uuid="520c0230-4686-46cf-b0e1-d2a672077d9d">
+      <driver-ref>postgresql</driver-ref>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql:cnp-web_production</jdbc-url>
+      <user-name>cnpadmin</user-name>
+      <user-password>dfcbdfcedfc7dfc3dfc4dff5dfc3dfc3dfdedfc7dfcbdfc4dfcedfc3</user-password>
+      <libraries />
+    </data-source>
+  </component>
+</project>
+

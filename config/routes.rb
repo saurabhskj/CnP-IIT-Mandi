@@ -1,4 +1,10 @@
 CnpWeb::Application.routes.draw do
+  devise_for :users
+
+  devise_scope :user do
+    get 'users/sign_out', to: 'devise/sessions#destroy', as: :destroy_user_session, via: Devise.mappings[:user].sign_out_via
+  end
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
@@ -12,6 +18,9 @@ CnpWeb::Application.routes.draw do
 
   # Sample resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products
+
+  resources :home
+
 
   # Sample resource route with options:
   #   resources :products do
@@ -48,8 +57,8 @@ CnpWeb::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  # root :to => 'welcome#index'
-
+  root :to => 'home#index'
+  
   # See how all your routes lay out with "rake routes"
 
   # This is a legacy wild controller route that's not recommended for RESTful applications.

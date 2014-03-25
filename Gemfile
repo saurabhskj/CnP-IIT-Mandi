@@ -7,10 +7,6 @@ gem 'rails', '3.2.16'
 
 gem 'pg'
 
-# Mailer
-#gem 'mandrill-rails'
-gem 'mandrill_mailer'
-
 if defined?(JRUBY_VERSION)
     gem 'activerecord-jdbc-adapter', :require => false
     gem 'jdbc-sqlite3', :require => false
@@ -38,7 +34,7 @@ end
 
 gem 'foundation-rails'
 gem 'aws-ses'
-gem 'aws-sdk'
+
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 gem 'devise'
@@ -49,7 +45,6 @@ gem 'acts-as-taggable-on'
 gem 'rails3-jquery-autocomplete'
 
 gem 'omniauth'
-gem 'omniauth-facebook', '1.4.0'
 gem 'will_paginate'
 
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
