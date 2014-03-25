@@ -4,7 +4,7 @@ gem 'rails', '3.2.16'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
-
+#
 gem 'pg'
 
 if defined?(JRUBY_VERSION)
@@ -31,7 +31,7 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
   #gem 'zurb-foundation' #, :git => "git://github.com/zurb/foundation.git"
 end
-
+# 
 gem 'foundation-rails'
 gem 'aws-ses'
 
