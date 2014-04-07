@@ -1,0 +1,108 @@
+
+
+<div class="forum_class" style="margin-top: -30px">
+
+
+  <ul class="pager" style="padding-left: 20px; padding-right: 20px">
+    <% if @forum.id.to_i == Forum.all.first.id %>
+        <li class="previous disabled">
+          <a href="#" disabled style="background-color: transparent; border-color: transparent; padding-top: 5px">&larr; Previous</a>
+    <% else %>
+        <li class="previous">
+          <a href="<%= forum_path(@forum.id.to_i - 1) %>" style="background-color: transparent; color: #006688 ; ;border-color: transparent; padding-top: 5px">&larr; Previous</a>
+    <% end %>
+    </li>
+
+    <% if Forum.all.last.id == @forum.id.to_i %>
+        <li class="next disabled">
+          <a href="#" disabled style="background-color: transparent; border-color: transparent; padding-top: 5px">Next &rarr;</a>
+    <% else %>
+        <li class="next">
+          <a href="<%= forum_path(Forum.find(@forum.id.to_i + 1))%>" style="background-color: transparent; color: #006688; border-color: transparent; padding-top: 5px">Next &rarr;</a>
+    <% end %>
+    </li>
+  </ul>
+
+  <div class="accordion" style="text-align: center ;color: #2d6987; font-size: 40px; margin-top: -20px  ;font-family: 'Consolas'; text-decoration: underline">  <%= @forum.title %>    </div>
+  <div class="accordion" style="padding-left: 40px; padding-right: 40px; padding-top: 20px; font-family: 'lucida console'; font-size: 15px ;text-wrap: normal"> <%= @forum.content %>  </div>
+
+</div>
+
+<div style="margin-bottom: 30%; margin-left: auto; margin-right: auto; width: 76%">
+  <form id="new_comment" style="background-color: transparent; border-color: transparent" class="well span8" method="post" action="/forum/<%= @forum.id.to_i %>/comments" accept-charset="UTF-8">
+
+    <div class="row" style="margin-left: auto; margin-right: auto;">
+      <h2 style="color: darkslategrey; font-family: Consolas; font-size: 16px">Add a comment
+        <% unless user_signed_in? %>
+            <!--    (please login or the fill in the form below to post a comment) -->
+        <% end %>
+        :
+      </h2>
+
+      <hr style="width: 61% ; margin-top: auto; background-color: #000000; border-color: darkslategrey"/>
+
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" />
+
+      <div class="span3" style="margin-left: auto">
+        <p><textarea name="comment[body]" id="comment_body" class="input-xlarge span5" rows="10" style="margin-top: 5% ;height: 100px" placeholder="Enter your comment here..."></textarea>
+        </p>
+
+        <br/>
+
+        <p><div style="margin-right: -50%; color: darkslategrey; text-decoration: solid; font-family: 'Consolas' ;font-size: 16px;">
+        <% unless user_signed_in? %>
+            Fill in your details below or login <a href="<%= new_user_session_path %>" style="color: #002a80"> here. </a>
+        <% end %>
+      </div>
+        </p>
+        <input style="margin-top: 5%" id="comment_commenter" type="text" class="span5" placeholder="Your Full Name *" name="comment[commenter]" autofocus="true">
+
+
+        <% unless user_signed_in? %>
+            <input style="margin-top: 5%" id="comment_email" type="email" class="span5" placeholder="Your email *" name="comment[email]">
+        <% else %>
+            <input style="margin-top: 5%" id="comment_email" type="email" class="span5" placeholder="Your email *" name="comment[email]" value="<%= current_user.email %>">
+        <% end %>
+
+        <button name="commit" value="Send" type="submit" class="btn" style="margin-top: 5%;font-family: Consolas; color: darkslategrey; margin-left: 320px">Post</button>
+
+      </div>
+    </div>
+  </form>
+</div>
+
+<div class="panel-group" id="accordion" style="padding-top: 6% ;padding-left: 20px; padding-right: 20px; width: 70%; margin-left: auto; margin-right: auto">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title">
+        <a data-toggle="collapse" data-parent="#accordion" href="#view_comments" style="color: steelblue; font-size: 16px; font-family: Gabriel">
+          View Comments
+        </a>
+      </h4>
+    </div>
+
+    <div id="collapseOne" class="panel-collapse collapse in" style="margin-top: 20px">    <!-- collapse in  -->
+      <div class="panel-body">
+        <ul>
+          <% @forum.comments.each do |comment| %>
+
+              <li>
+                <div style="text-wrap: normal; font-size: 14px; font-family: Consolas"><strong> <%= comment.commenter %> </strong></div>
+                <div style="text-wrap: normal; font-size: 14px; font-family: Consolas">  <%= comment.body %></div>
+              </li>
+              <br/>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!--<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demo">
+  simple collapsible
+</button>
+
+<div id="demo" class="collapse in">...</div>
+-->
+

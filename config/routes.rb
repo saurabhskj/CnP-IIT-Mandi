@@ -5,6 +5,12 @@ CnpWeb::Application.routes.draw do
     get 'users/sign_out', to: 'devise/sessions#destroy', as: :destroy_user_session, via: Devise.mappings[:user].sign_out_via
   end
 
+
+  devise_for :admin, :controllers => {:registrations => 'admin/registrations', :sessions => 'admin/sessions'}
+
+  devise_scope :admin do
+    get 'admin/sign_out', to: 'admin/sessions#destroy', as: :destroy_admin_session , via:Devise.mappings[:admin].sign_out_via
+  end
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
@@ -19,7 +25,16 @@ CnpWeb::Application.routes.draw do
   # Sample resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products
 
+  match '/forums', to: 'forum#index', via: [:get]
+  #match 'create_forum'
+
+ # get 'forum/:forum', to: 'forum#show', as: :forum
+
   resources :home
+
+  resources :forum do
+    resources :comments
+  end
 
 
   # Sample resource route with options:

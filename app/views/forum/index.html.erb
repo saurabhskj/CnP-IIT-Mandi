@@ -1,0 +1,32 @@
+
+<br/>
+<div class="" style="margin-left: 100px; margin-right: 100px; background-color: transparent; height: 400px; border-color: transparent">
+  <div  style="font-family: Georgia; text-align: center; font-size: 60px; color: lightslategray"> Forums </div>
+
+  <div class="row" style="padding-top: 5%; margin-left: 5%; margin-right: 5%">
+    <ul>
+      <div class="accordion" style="font-size: 20px; color: #000000">
+
+        <% @forums.each do |forum| %>
+            <li> <p><a href="<%= forum_path(forum) %>" style="font-family: 'Gabriela'; font-size: 20px; background-color: transparent;
+                    color: blue ;margin-top: 10% ; color: #000000"> <%= forum.title %></a> </p> </li>
+            <br/>
+        <% end %>
+
+        <!-- if @forums.empty? -->
+        <!-- end -->
+
+      </div>
+
+    </ul>
+  </div>
+
+  <div class="apple_pagination" style="padding-bottom: 8%  ; width: 30%; background-color: transparent; border-color: transparent;
+          text-align: center; margin-left: 34%; color: #2d6987">
+    <div class="page_info" style="font-family: Consolas; color: #000000">
+      <%= page_entries_info @forums %>
+    </div>
+    <%= will_paginate @forums, :container => false %>
+  </div>
+
+</div>
