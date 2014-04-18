@@ -1,0 +1,40 @@
+== CnP-Web
+
+
+Title: Building and developing the web framework for CnP (Career and Placement) Cell to carry out the placement
+			 activities.
+
+Description/ Requirements:
+
+1. Students Details:
+	• Using the webmail credentials to register students on site.
+	• In addition to the basic information that is fetched from webmail account, the following must be stored as well– Branch, 			Year of Graduation, Eligibility – any backlogs?, selected? And isplaced? .
+
+2. Forums (FAQs):
+	• Students can post their quries related to companies, general discussion about the procedural setup of interviews/written 			examination.
+
+3. Notifications/News Center where all the information related to upcoming companies for
+	 placement/internship will be posted.
+
+4. Resume:
+	• To provide a resume template which can be used by student to create their resumes/cv.
+	• Facility to upload multiple resumes for different companies.
+	• Select a particular resume for any number of companies and send it for consideration by
+		the respective companies.
+	• Download your resumes created using resumer or bulk download by admins.
+
+5. Profile Setup:
+	• Students can receive personal messages from the admin.
+	• Edit your personal information like contact details, etc.
+
+6. Companies Panel:
+	• Filtering of the available resumes with the predefined criterion like only C.S. Students are eligible, etc.
+	• Bulk downoad of resumes.
+
+7. Admin Panel:
+	• Post notifications for companies on internship/placement news center.	
+	• List of students eligible/selected for any particular company and download the datasheet corresponding to it.
+	• Filtering to select a bunch of students which matches a certain criterion. To be done by passing the SQL query with the 		desired selection clause(s).
+	• Reports generation and send it via email.
+
+
