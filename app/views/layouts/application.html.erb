@@ -48,6 +48,7 @@
                 <li><a href="<%= new_user_session_path %>"> Sign In</a> </li>
                 <li><a href="<%= new_user_registration_path %>"> Sign Up</a> </li>
           <% else %>
+                <li><a href="<%= my_profile_path %>">My Profile</a></li>
                 <li><a href="<%= destroy_user_session_path %>">Sign Out</a></li>
             <% end %>
           </ul>
@@ -63,6 +64,7 @@
             <% unless user_signed_in? %>
                 <li><a href="<%= new_admin_session_path %>"> Sign In</a> </li>
             <% else %>
+                <li><a href="<%= my_profile_path %>">My Profile</a></li>
                 <li><a href="<%= destroy_admin_session_path %>">Sign Out</a></li>
             <% end %>
           </ul>

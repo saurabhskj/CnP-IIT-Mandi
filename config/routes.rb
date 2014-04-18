@@ -26,6 +26,8 @@ CnpWeb::Application.routes.draw do
   #   resources :products
 
   match '/forums', to: 'forum#index', via: [:get]
+
+  match '/my_profile', to: 'profile#my_profile', via: [:get, :post]
   #match 'create_forum'
 
  # get 'forum/:forum', to: 'forum#show', as: :forum
