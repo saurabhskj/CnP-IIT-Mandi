@@ -5,6 +5,12 @@ CnpWeb::Application.routes.draw do
     get 'users/sign_out', to: 'devise/sessions#destroy', as: :destroy_user_session, via: Devise.mappings[:user].sign_out_via
   end
 
+  devise_for :student, :controllers => {:registrations => 'student/registrations', :sessions => 'student/sessions'}
+
+  devise_scope :student do
+    get 'student/sign_out', to: 'student/sessions#destroy', as: :destroy_admin_session , via:Devise.mappings[:student].sign_out_via
+  end
+
 
   devise_for :admin, :controllers => {:registrations => 'admin/registrations', :sessions => 'admin/sessions'}
 

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140505055539) do
+ActiveRecord::Schema.define(:version => 20140505172207) do
 
   create_table "admins", :force => true do |t|
     t.datetime "created_at", :null => false
@@ -35,6 +35,17 @@ ActiveRecord::Schema.define(:version => 20140505055539) do
 
   add_index "comments", ["forum_id"], :name => "index_comments_on_forum_id"
 
+  create_table "companies", :force => true do |t|
+    t.string   "name"
+    t.string   "location"
+    t.string   "job_type"
+    t.string   "category"
+    t.string   "profile"
+    t.integer  "requirement"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
   create_table "contact_infos", :force => true do |t|
     t.integer  "user_id"
     t.string   "phone_number1"
@@ -48,6 +59,11 @@ ActiveRecord::Schema.define(:version => 20140505055539) do
   create_table "forums", :force => true do |t|
     t.string   "title"
     t.text     "content"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "students", :force => true do |t|
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end

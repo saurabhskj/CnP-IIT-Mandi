@@ -43,3 +43,15 @@ category_list = [
 category_list.each do |name|
   Category.create(name: name).save
 end
+
+
+company_list = [
+    ["Amazon", "Software Development Engineer", "intern", "Hyderabad", 5],
+    ["Facebook", "Software Development Engineer", "full time", "California", 3],
+    ["Google", "Product Manager", "full time", "Silicon Valley", 2],
+    ["Microsoft","Security Engineer", "intern", "Bangalore", 3]
+]
+
+company_list.each do |name, category, job_type, location, req|
+  Company.create(name: name, category: category, job_type: job_type, location: location, requirement: req)
+end
