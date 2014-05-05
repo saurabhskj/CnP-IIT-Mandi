@@ -1,1 +1,135 @@
-Testing!
+
+Welcome User!
+<p></p>
+<br/>
+<div class="tabbable"> <!-- Only required for left/right tabs -->
+  <ul class="nav nav-tabs">
+    <li class="active"><a href="#personal" data-toggle="tab">Personal Details</a></li>
+    <li><a href="#contact" data-toggle="tab">Contact Details</a></li>
+  </ul>
+  <div class="tab-content">
+    <div class="tab-pane active" id="personal" style="margin-left: 1%">
+      <%= form_tag :url => {:action => :my_profile}, method: :get do %>
+        <div>
+            <%= "First Name: " %>
+            <% if @details.first_name.nil? %>
+                <%= text_field_tag :first_name, params[:first_name], :placeholder => "#{@details.first_name}" %>
+            <% else %>
+                <%= "#{@details.first_name}" %>
+            <% end %>
+        </div>
+
+          <div>
+            <%= "Middle Name: " %>
+            <% if @details.middle_name.nil? %>
+                <%= text_field_tag :middle_name, params[:middle_name], :placeholder => "#{@details.middle_name}" %>
+            <% else %>
+                <%= "#{@details.middle_name}" %>
+            <% end %>
+          </div>
+
+          <div>
+            <%= "Last Name: " %>
+            <% if @details.last_name.nil? %>
+                <%= text_field_tag :last_name, params[:last_name], :placeholder => "#{@details.last_name}" %>
+            <% else %>
+                <%= "#{@details.last_name}" %>
+            <% end %>
+          </div>
+
+          <div>
+            <%= "Date of Birth (DD/MM/YYYY): " %>
+            <% if @details.dob.nil? %>
+                <%= text_field_tag :dob, params[:dob], :placeholder => "#{@details.dob}" %>
+            <% else %>
+                <%= "#{@details.dob}" %>
+            <% end %>
+          </div>
+
+          <div>
+            <%= "Gender: " %>
+
+            <% if @details.gender.nil? %>
+                <%= text_field_tag :gender, params[:gender], :placeholder => "#{@details.gender}" %>
+            <% else %>
+                <%= "#{@details.first_name}" %>
+            <% end %>
+          </div>
+
+          <div>
+            <%= "Category: " %>
+            <%= select_tag 'cat_list', options_for_select(Category.all.collect{ |cat| [cat.name] }) %>
+          </div>
+
+          <br/>
+
+          <div class="accordion-heading" style="font-family: Georgia; font-size: 30px">Hostel Information:</div>
+            <br/>
+
+          <div>
+            <%= "Hostel Name: " %>
+
+            <% if @details.hostel_name.nil? %>
+                <%= text_field_tag :hostel_name, params[:hostel_name], :placeholder => "#{}" %>
+            <% else %>
+                <%= "#{@details.hostel_name}" %>
+            <% end %>
+
+          </div>
+
+          <div>
+            <%= "Hostel Address: " %>
+
+            <% if @details.hostel_address.nil? %>
+                <%= text_area_tag :hostel_address, params[:hostel_address], :placeholder => "#{}" %>
+            <% else %>
+                <%= "#{@details.hostel_address}" %>
+            <% end %>
+
+          </div>
+
+          <div>
+            <%= "City: " %>
+
+            <% if @details.city.nil? %>
+                <%= text_field_tag :city, params[:city], :placeholder => "#{}" %>
+            <% else %>
+                <%= "#{@details.city}" %>
+            <% end %>
+          </div>
+
+          <div>
+            <%= "State: " %>
+
+            <% if @details.state.nil? %>
+                <%= text_field_tag :state, params[:state], :placeholder => "#{}" %>
+            <% else %>
+                <%= "#{@details.state}" %>
+            <% end %>
+
+          </div>
+
+          <%= submit_tag 'Submit' %>
+      <% end %>
+    </div>
+
+    <div class="tab-pane" id="contact">
+      <%= form_tag :url => {:action => :my_profile}, method: :get do %>
+          <div> <%= "Personal Email: " %>  <%= text_field_tag :personal_email, params[:personal_email], :placeholder => "#{@contact_info.personal_email}" %>
+          </div>
+
+          <div> <%= "Phone Number 1: " %>  <%= text_field_tag :phone_number1, params[:phone_number1], :placeholder => "#{@contact_info.phone_number1}" %>
+          </div>
+
+          <div> <%= "Phone Number 2: " %>  <%= text_field_tag :phone_number2, params[:phone_number2], :placeholder => "#{@contact_info.phone_number2}" %>
+          </div>
+
+          <br/>
+          <%= submit_tag 'Submit' %>
+          <!--   <button type="submit" class="btn btn-info"> Submit</button> -->
+      <% end %>
+    </div>
+  </div>
+</div>
+
+

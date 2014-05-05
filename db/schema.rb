@@ -11,9 +11,15 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140406173538) do
+ActiveRecord::Schema.define(:version => 20140505055539) do
 
   create_table "admins", :force => true do |t|
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "categories", :force => true do |t|
+    t.string   "name"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
@@ -28,6 +34,16 @@ ActiveRecord::Schema.define(:version => 20140406173538) do
   end
 
   add_index "comments", ["forum_id"], :name => "index_comments_on_forum_id"
+
+  create_table "contact_infos", :force => true do |t|
+    t.integer  "user_id"
+    t.string   "phone_number1"
+    t.string   "phone_number2"
+    t.string   "personal_email"
+    t.string   "college_email"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
+  end
 
   create_table "forums", :force => true do |t|
     t.string   "title"
@@ -50,6 +66,17 @@ ActiveRecord::Schema.define(:version => 20140406173538) do
     t.datetime "created_at",                             :null => false
     t.datetime "updated_at",                             :null => false
     t.string   "type"
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "middle_name"
+    t.date     "dob"
+    t.string   "gender"
+    t.string   "hostel_name"
+    t.text     "hostel_address"
+    t.string   "city"
+    t.string   "state"
+    t.boolean  "perm_citz_of_india"
+    t.integer  "category_id"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

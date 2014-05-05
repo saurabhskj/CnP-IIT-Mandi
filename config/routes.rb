@@ -1,5 +1,5 @@
 CnpWeb::Application.routes.draw do
-  devise_for :users
+  devise_for :users, :controllers => {:registrations => 'users/registrations', :sessions => 'users/sessions'}
 
   devise_scope :user do
     get 'users/sign_out', to: 'devise/sessions#destroy', as: :destroy_user_session, via: Devise.mappings[:user].sign_out_via
@@ -28,6 +28,8 @@ CnpWeb::Application.routes.draw do
   match '/forums', to: 'forum#index', via: [:get]
 
   match '/my_profile', to: 'profile#my_profile', via: [:get, :post]
+
+  match 'messages', to: 'profile#messages'
   #match 'create_forum'
 
  # get 'forum/:forum', to: 'forum#show', as: :forum

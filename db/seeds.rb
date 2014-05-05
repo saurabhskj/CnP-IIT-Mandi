@@ -17,7 +17,8 @@ admin_list.each do |email, password|
 #  admin.skip_confirmation!
 #  admin.skip_confirmation_notification!
   admin.save
-
+  ContactInfo.create(user_id: admin.id)
+  #admin.contact_info.build.save
 end
 
 user_list = [
@@ -31,5 +32,14 @@ user_list.each do |email, password|
   #user.skip_confirmation!
   #user.skip_confirmation_notification!
   user.save
+  ContactInfo.create(user_id: user.id)
+  #user.contact_info.build.save
+end
 
+category_list = [
+    "Gen", "OBC", "SC/ST", "Others"
+]
+
+category_list.each do |name|
+  Category.create(name: name).save
 end
