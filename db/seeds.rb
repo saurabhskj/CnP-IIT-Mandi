@@ -49,7 +49,8 @@ company_list = [
     ["Amazon", "Software Development Engineer", "intern", "Hyderabad", 5],
     ["Facebook", "Software Development Engineer", "full time", "California", 3],
     ["Google", "Product Manager", "full time", "Silicon Valley", 2],
-    ["Microsoft","Security Engineer", "intern", "Bangalore", 3]
+    ["Microsoft","Security Engineer", "intern", "Bangalore", 3],
+    ["Tower Research","System Research", "full time", "Bangalore", 2]
 ]
 
 company_list.each do |name, category, job_type, location, req|

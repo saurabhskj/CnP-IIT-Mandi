@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  company_id: 1
+  student_id: 1
+  shortlisted: false
+  selected: false
+  placed: false
+
+two:
+  company_id: 1
+  student_id: 1
+  shortlisted: false
+  selected: false
+  placed: false

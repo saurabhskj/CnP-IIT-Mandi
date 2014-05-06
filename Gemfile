@@ -31,6 +31,9 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
   #gem 'zurb-foundation' #, :git => "git://github.com/zurb/foundation.git"
 end
+
+gem 'carrierwave'
+
 # 
 gem 'foundation-rails'
 gem 'aws-ses'

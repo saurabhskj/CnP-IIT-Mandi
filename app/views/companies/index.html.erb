@@ -24,6 +24,8 @@
     <table class="table table-striped" style="width: 100%">
       <thead>
       <tr>
+        <th>Select Resume</th>
+        <th>Apply to Companies</th>
         <th>Company Name</th>
         <th>Category</th>
         <th>Duration</th>
@@ -35,7 +37,18 @@
       <tbody>
       <% @companies.each do |company| %>
           <tr>
-            <!-- <td> radio_button_tag "rel_ids[]", rel.id </td> -->
+            <td>
+              <%= select_tag 'resume_list', options_for_select(@resume_name) %>
+            </td>
+
+            <td>
+              <% if (reg = StudCompReg.where("student_id = #{@student_id} and company_id = #{company.id}").first.nil?)%>
+                  <button type="submit" class="btn btn-info" name="company_id" value="<%= company.id %>">Apply</button>
+              <% else %>
+                  <button type="submit" class="btn btn-info" name="company_id" disabled value="<%= company.id %>">Applied</button>
+              <% end %>
+
+            </td>
             <td><%= company.name %></td>
             <td><%= company.category %></td>
             <td><%= "2 Months" %> </td>
