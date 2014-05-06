@@ -4,11 +4,7 @@
     <list default="true" id="e39f2f34-848c-43ac-94f5-62adc89c2410" name="Default" comment="">
       <change type="DELETED" beforePath="$PROJECT_DIR$/lib/resumes/4/rootkey.csv" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/resume/index.html.erb" afterPath="$PROJECT_DIR$/app/views/resume/index.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/resume.rb" afterPath="$PROJECT_DIR$/app/models/resume.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/resume_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/resume_controller.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/schema.rb" afterPath="$PROJECT_DIR$/db/schema.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/student.rb" afterPath="$PROJECT_DIR$/app/models/student.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="cnp-web.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -31,10 +27,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="resume_controller.rb" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="resume_controller.rb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/controllers/resume_controller.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="39" column="31" selection-start="1221" selection-end="1221" vertical-scroll-proportion="0.73730296" vertical-offset="164" max-vertical-offset="915">
+            <state line="57" column="5" selection-start="1645" selection-end="1645" vertical-scroll-proportion="0.0" vertical-offset="404" max-vertical-offset="975">
               <folding />
             </state>
           </provider>
@@ -49,19 +45,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="companies_controller.rb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/controllers/companies_controller.rb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="14" column="43" selection-start="462" selection-end="462" vertical-scroll-proportion="0.0" vertical-offset="29" max-vertical-offset="600">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.html.erb" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="index.html.erb" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/views/resume/index.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="32" column="56" selection-start="971" selection-end="971" vertical-scroll-proportion="-6.5416665" vertical-offset="323" max-vertical-offset="900">
+            <state line="28" column="93" selection-start="866" selection-end="866" vertical-scroll-proportion="0.69835466" vertical-offset="38" max-vertical-offset="1005">
               <folding>
                 <element signature="n#style#0;n#div#1;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#table#0;n#div#1;n#!!top" expanded="true" />
@@ -70,10 +57,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.html.erb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/companies/index.html.erb">
+      <file leaf-file-name="pagination.css" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/pagination.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="36" column="9" selection-start="1051" selection-end="1051" vertical-scroll-proportion="-0.0" vertical-offset="540" max-vertical-offset="1155">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1635">
               <folding />
             </state>
           </provider>
@@ -140,9 +127,9 @@
         <option value="$PROJECT_DIR$/app/controllers/companies_controller.rb" />
         <option value="$PROJECT_DIR$/app/models/student.rb" />
         <option value="$PROJECT_DIR$/db/migrate/20140506170309_add_columns_to_resume.rb" />
-        <option value="$PROJECT_DIR$/app/views/resume/index.html.erb" />
         <option value="$PROJECT_DIR$/app/models/resume.rb" />
         <option value="$PROJECT_DIR$/app/controllers/resume_controller.rb" />
+        <option value="$PROJECT_DIR$/app/views/resume/index.html.erb" />
       </list>
     </option>
   </component>
@@ -448,6 +435,28 @@
               <option name="myItemId" value="assets" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="stylesheets" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="cnp-web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="cnp-web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="assets" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
@@ -686,11 +695,6 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/controllers/users/sessions_controller.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="18" selection-start="401" selection-end="401" vertical-scroll-proportion="0.24861878" vertical-offset="0" max-vertical-offset="543" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/users/registrations_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="3" column="2" selection-start="98" selection-end="98" vertical-scroll-proportion="0.078809105" vertical-offset="0" max-vertical-offset="571" />
@@ -938,25 +942,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/companies_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="43" selection-start="462" selection-end="462" vertical-scroll-proportion="0.0" vertical-offset="29" max-vertical-offset="600">
+        <state line="12" column="32" selection-start="392" selection-end="392" vertical-scroll-proportion="0.0" vertical-offset="29" max-vertical-offset="600">
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/companies/index.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="36" column="9" selection-start="1051" selection-end="1051" vertical-scroll-proportion="0.0" vertical-offset="540" max-vertical-offset="1155">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/resume/index.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="32" column="56" selection-start="971" selection-end="971" vertical-scroll-proportion="-6.5416665" vertical-offset="323" max-vertical-offset="900">
-          <folding>
-            <element signature="n#style#0;n#div#1;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#table#0;n#div#1;n#!!top" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -969,8 +956,32 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/resume_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="39" column="31" selection-start="1221" selection-end="1221" vertical-scroll-proportion="0.73730296" vertical-offset="164" max-vertical-offset="915">
+        <state line="57" column="5" selection-start="1645" selection-end="1645" vertical-scroll-proportion="0.0" vertical-offset="404" max-vertical-offset="975">
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/companies/index.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="70" column="6" selection-start="2001" selection-end="2168" vertical-scroll-proportion="0.9367589" vertical-offset="576" max-vertical-offset="1155">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/pagination.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1635">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/resume/index.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="28" column="93" selection-start="866" selection-end="866" vertical-scroll-proportion="0.69835466" vertical-offset="38" max-vertical-offset="1005">
+          <folding>
+            <element signature="n#style#0;n#div#1;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#table#0;n#div#1;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

@@ -1,3 +1,5 @@
+require 'will_paginate/array'
+
 class ResumeController < ApplicationController
   before_filter :user_privilege
   layout 'student_layout'
@@ -30,6 +32,8 @@ class ResumeController < ApplicationController
     end
 
     @cur_resumes = Resume.search(student_id, params[:search_resume])
+
+    @cur_resumes = @cur_resumes.paginate(page: params[:page], per_page: 4)
 
     unless params[:resume_id].nil?
       download(params[:resume_id].to_i)

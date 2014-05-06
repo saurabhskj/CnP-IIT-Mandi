@@ -26,7 +26,7 @@
   <p/>
   <p>
 
-  <%= text_field_tag :search_resume, params[:search_resume], :placeholder => "Search resumes by name:" %>
+  <%= text_field_tag :search_resume, params[:search_resume], :placeholder => "Search resumes:" %>
   <%= submit_tag 'Search'%>
 
   </p>
@@ -52,4 +52,11 @@
 
 <% end %>
 
+</div>
+
+<div class="flickr_pagination">
+  <div class="page_info">
+    <%= page_entries_info @cur_resumes %>
+  </div>
+  <%= will_paginate @cur_resumes, :container => false %>
 </div>
