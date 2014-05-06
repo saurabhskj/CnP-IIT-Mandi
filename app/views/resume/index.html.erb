@@ -11,8 +11,45 @@
   <!-- < file_field 'upload', 'file' -->
     <input type="file" id="upload_file" name="upload[file]" > <br/>
     <br/>
-    <button class="btn" name="submit" type="submit">Upload</button>
+    <button class="btn" name="upload_resume" type="submit">Upload</button>
 
     <!-- submit_tag 'Upload' -->
   <% end %>
+
+<p></p>
+
+<%= form_tag :url=> {:action => :index}, :method => 'get' do %>
+
+  <p/>
+  <br/>
+  <b> Available Resumes: </b>
+  <p/>
+  <p>
+
+  <%= text_field_tag :search_resume, params[:search_resume], :placeholder => "Search resumes by name:" %>
+  <%= submit_tag 'Search'%>
+
+  </p>
+  <table class="table table-bordered" style="width: auto">
+    <thead>
+    <tr>
+      <th></th>
+      <th>Resume Name</th>
+      <th>Last Updated</th>
+    </tr>
+    </thead>
+    <% @cur_resumes.each do |res| %>
+        <tr>
+          <td>  <%= radio_button_tag "resume_id", res.id %></td>
+          <td><%= res.name %></td>
+          <td><%= res.updated_at.localtime %></td>
+        </tr>
+    <% end %>
+  </table>
+
+
+    <button type="submit" class="btn btn-primary">Download</button>
+
+<% end %>
+
 </div>
