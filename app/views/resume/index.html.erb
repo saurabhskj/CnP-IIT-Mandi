@@ -1,0 +1,18 @@
+<% if flash[:upload_error] %>
+    <div class="alert alert-error">
+      <button type="button" class="close" data-dismiss="alert">&times;</button>
+      <%= flash[:upload_error] %>
+    </div>
+<% end %>
+
+<div style="margin-left: 1%">
+  <%= form_tag :url=> {:action => :index}, :method => 'get' do %>
+    <div style="font-family: arial, sans-serif; font-size: 15px; "><b>Upload your resume: </b></div>
+  <!-- < file_field 'upload', 'file' -->
+    <input type="file" id="upload_file" name="upload[file]" > <br/>
+    <br/>
+    <button class="btn" name="submit" type="submit">Upload</button>
+
+    <!-- submit_tag 'Upload' -->
+  <% end %>
+</div>

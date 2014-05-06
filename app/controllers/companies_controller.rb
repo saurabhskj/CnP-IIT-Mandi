@@ -12,7 +12,7 @@ class CompaniesController < ApplicationController
     @companies = @companies.paginate(page: params[:page], per_page: 4)
     @student_id = current_student.id
     @resume_name = []
-    Dir.foreach('lib/resumes/b11033') do |file_name|
+    Dir.foreach("lib/resumes/#{@student_id}") do |file_name|
       next if file_name == '.' or file_name == '..'
       @resume_name.push([file_name])
       puts "resume ------- #{file_name} \n\n"

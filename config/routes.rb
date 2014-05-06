@@ -13,6 +13,8 @@ CnpWeb::Application.routes.draw do
 
   authenticated :student do
     root :to => 'students#index'
+    match '/resume', :to => 'resume#index', via: [:get, :post]
+    match '/resume/upload', to: 'resume#upload_file', via: [:get, :post]
   end
 
   devise_for :admin, :controllers => {:registrations => 'admin/registrations', :sessions => 'admin/sessions'}
@@ -23,7 +25,10 @@ CnpWeb::Application.routes.draw do
 
   authenticated :admin do
     root :to => 'admin#index'
+    match '/resume', :to => 'resume#index', via: [:get, :post]
+    match '/resume/upload', to: 'resume#upload_file', via: [:get, :post]
   end
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
@@ -43,12 +48,15 @@ CnpWeb::Application.routes.draw do
   match '/my_profile', to: 'profile#my_profile', via: [:get, :post]
 
   match 'messages', to: 'profile#messages'
+
+
+
   #match 'create_forum'
 
  # get 'forum/:forum', to: 'forum#show', as: :forum
 
   match 'companies', to: 'companies#index', via: [:get, :post]
-  resources :home, :companies
+  resources :home, :companies, :resume
 
   resources :forum do
     resources :comments
