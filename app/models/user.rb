@@ -11,11 +11,11 @@ class User < ActiveRecord::Base
   attr_accessible :email, :password, :password_confirmation, :remember_me, :type, :first_name, :middle_name, :last_name,
                   :dob, :gender, :hostel_name, :hostel_address, :city, :state, :perm_citz_of_india, :category_id
   # attr_accessible :title, :body
- # before_create :check_name
+  before_create :check_name
 
   def check_name
-    if self.name.nil?
-      self.name = 'User'
+    if self.first_name.nil?
+      self.first_name = 'User'
     end
   end
   

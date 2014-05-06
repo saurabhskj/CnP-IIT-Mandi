@@ -8,14 +8,21 @@ CnpWeb::Application.routes.draw do
   devise_for :student, :controllers => {:registrations => 'student/registrations', :sessions => 'student/sessions'}
 
   devise_scope :student do
-    get 'student/sign_out', to: 'student/sessions#destroy', as: :destroy_admin_session , via:Devise.mappings[:student].sign_out_via
+    get 'student/sign_out', to: 'student/sessions#destroy', as: :destroy_student_session , via:Devise.mappings[:student].sign_out_via
   end
 
+  authenticated :student do
+    root :to => 'students#index'
+  end
 
   devise_for :admin, :controllers => {:registrations => 'admin/registrations', :sessions => 'admin/sessions'}
 
   devise_scope :admin do
     get 'admin/sign_out', to: 'admin/sessions#destroy', as: :destroy_admin_session , via:Devise.mappings[:admin].sign_out_via
+  end
+
+  authenticated :admin do
+    root :to => 'admin#index'
   end
   # The priority is based upon order of creation:
   # first created -> highest priority.
@@ -40,7 +47,8 @@ CnpWeb::Application.routes.draw do
 
  # get 'forum/:forum', to: 'forum#show', as: :forum
 
-  resources :home
+  match 'companies', to: 'companies#index', via: [:get, :post]
+  resources :home, :companies
 
   resources :forum do
     resources :comments

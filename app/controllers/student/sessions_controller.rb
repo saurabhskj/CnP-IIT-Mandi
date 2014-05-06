@@ -4,7 +4,7 @@ class Student::SessionsController < Devise::SessionsController
   prepend_before_filter :only => [ :create, :destroy ] #{ request.env["devise.skip_timeout"] = true }
 
  # before_filter :authenticate
-  #layout 'admin_layout'
+  #layout 'student_layout'
 
   def new
     super

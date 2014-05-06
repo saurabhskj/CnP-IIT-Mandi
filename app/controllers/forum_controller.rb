@@ -2,6 +2,7 @@ require 'will_paginate/array'
 
 class ForumController < ApplicationController
   before_filter :admin_privilege, :only => [:new, :create]
+  layout 'student_layout'
 
   def new
     forum = Forum.new

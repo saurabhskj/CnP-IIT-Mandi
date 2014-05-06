@@ -1,5 +1,4 @@
 
-Welcome User!
 <p></p>
 <br/>
 <div class="tabbable"> <!-- Only required for left/right tabs -->
@@ -17,8 +16,9 @@ Welcome User!
             <% else %>
                 <%= "#{@details.first_name}" %>
             <% end %>
-        </div>
 
+        </div>
+          <br/>
           <div>
             <%= "Middle Name: " %>
             <% if @details.middle_name.nil? %>
@@ -27,6 +27,7 @@ Welcome User!
                 <%= "#{@details.middle_name}" %>
             <% end %>
           </div>
+          <br/>
 
           <div>
             <%= "Last Name: " %>
@@ -36,6 +37,7 @@ Welcome User!
                 <%= "#{@details.last_name}" %>
             <% end %>
           </div>
+          <br/>
 
           <div>
             <%= "Date of Birth (DD/MM/YYYY): " %>
@@ -45,6 +47,7 @@ Welcome User!
                 <%= "#{@details.dob}" %>
             <% end %>
           </div>
+          <br/>
 
           <div>
             <%= "Gender: " %>
@@ -55,6 +58,7 @@ Welcome User!
                 <%= "#{@details.first_name}" %>
             <% end %>
           </div>
+          <br/>
 
           <div>
             <%= "Category: " %>
@@ -76,6 +80,7 @@ Welcome User!
             <% end %>
 
           </div>
+          <br/>
 
           <div>
             <%= "Hostel Address: " %>
@@ -87,6 +92,7 @@ Welcome User!
             <% end %>
 
           </div>
+          <br/>
 
           <div>
             <%= "City: " %>
@@ -97,6 +103,7 @@ Welcome User!
                 <%= "#{@details.city}" %>
             <% end %>
           </div>
+          <br/>
 
           <div>
             <%= "State: " %>
@@ -108,6 +115,7 @@ Welcome User!
             <% end %>
 
           </div>
+          <br/>
 
           <%= submit_tag 'Submit' %>
       <% end %>

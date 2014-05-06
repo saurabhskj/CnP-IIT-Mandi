@@ -1,1 +1,81 @@
-<% render 'application'%>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>CnpWeb</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+<script type="text/javascript">
+    WebFontConfig = {
+        google: { families: [ 'Allura::latin', 'Gilda Display', 'Gabriela', 'Esteban', 'Droid Serif','Fanwood Text' ] }
+    };
+    (function() {
+        var wf = document.createElement('script');
+        wf.src = ('https:' == document.location.protocol ? 'https' : 'http') +
+                '://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
+        wf.type = 'text/javascript';
+        wf.async = 'true';
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(wf, s);
+    })(); </script>
+
+<% if user_signed_in? %>
+    Signed in as <%= current_user.email %>
+<% end %>
+<div class="navbar">
+  <div class="navbar navbar-inverse">
+    <div class="navbar-inner">
+      <!-- <a class="brand" href="#">Title</a> -->
+
+      <ul class="nav">
+
+        <li><a href="/">Home</a></li>
+        <li class="divider-vertical"></li>
+        <li><a href=<%= forums_path %>>Forums</a></li>
+        <li class="divider-vertical"></li>
+      </ul>
+      <ul class="nav pull-right">
+        <li class="dropdown">
+          <a href="" class="dropdown-toggle" data-toggle="dropdown">
+            User
+            <b class="caret"></b>
+          </a>
+          <ul class="dropdown-menu">
+            <% unless user_signed_in? %>
+                <li><a href="<%= new_student_session_path %>"> Sign In</a> </li>
+                <li><a href="<%= new_student_registration_path %>"> Sign Up</a> </li>
+            <% else %>
+                <li><a href="<%= my_profile_path %>">My Profile</a></li>
+                <li><a href="<%= destroy_user_session_path %>">Sign Out</a></li>
+            <% end %>
+          </ul>
+
+        </li>
+
+        <li class="dropdown">
+          <a href="" class="dropdown-toggle" data-toggle="dropdown">
+            Admin
+            <b class="caret"></b>
+          </a>
+          <ul class="dropdown-menu">
+            <% unless user_signed_in? %>
+                <li><a href="<%= new_admin_session_path %>"> Sign In</a> </li>
+            <% else %>
+                <li><a href="<%= my_profile_path %>">My Profile</a></li>
+                <li><a href="<%= destroy_admin_session_path %>">Sign Out</a></li>
+            <% end %>
+          </ul>
+
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<%= yield %>
+
+</body>
+</html>

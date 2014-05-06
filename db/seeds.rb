@@ -27,7 +27,7 @@ user_list = [
 ]
 
 user_list.each do |email, password|
-  user = User.new(:email => email, :password => password, :password_confirmation => password) #, name: "User")
+  user = Student.new(:email => email, :password => password, :password_confirmation => password) #, name: "User")
   #user.confirmation_token = nil
   #user.skip_confirmation!
   #user.skip_confirmation_notification!

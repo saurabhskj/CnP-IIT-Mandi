@@ -1,0 +1,58 @@
+<% if flash[:message] %>
+    <div class="alert alert-success">
+      <button type="button" class="close" data-dismiss="alert">&times;</button>
+      <%= flash[:message] %>
+    </div>
+<% end %>
+
+<% if flash[:alert] %>
+    <div class="alert alert-error">
+      <button type="button" class="close" data-dismiss="alert">&times;</button>
+      <%= flash[:alert] %>
+    </div>
+<% end %>
+
+<div style="margin-left: 0%">
+<%= form_tag  :url=> {:action => :index}, :method => 'get' do %>
+
+    <!-- text_field_tag :search1, params[:search1], :placeholder => "Enter points to transfer: " -->
+
+    <%= text_field_tag :search_company, params[:search_company], :placeholder => "Search Companies" %>
+    <br/>
+    <%= submit_tag 'Search' %>
+
+    <table class="table table-striped" style="width: 100%">
+      <thead>
+      <tr>
+        <th>Company Name</th>
+        <th>Category</th>
+        <th>Duration</th>
+        <th>Location</th>
+        <th>Requirement</th>
+      </tr>
+      </thead>
+
+      <tbody>
+      <% @companies.each do |company| %>
+          <tr>
+            <!-- <td> radio_button_tag "rel_ids[]", rel.id </td> -->
+            <td><%= company.name %></td>
+            <td><%= company.category %></td>
+            <td><%= "2 Months" %> </td>
+            <td><%= company.location %></td>
+            <td><%= company.requirement %></td>
+            <br/>
+          </tr>
+      <% end %>
+      </tbody>
+    </table>
+
+<% end %>
+</div>
+
+<div class="apple_pagination">
+  <div class="page_info">
+    <%= page_entries_info @companies %>
+  </div>
+  <%= will_paginate @companies, :container => false %>
+</div>
