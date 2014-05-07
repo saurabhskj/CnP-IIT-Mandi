@@ -7,8 +7,8 @@ class CompaniesController < ApplicationController
   def index
 
     puts "company name ----------------------- #{params[:search_company]}"
-    job_type = "Intern"
-    @companies  = Company.search(params[:search_company] , job_type)
+    #job_type = "Intern"
+    @companies  = Company.search(params[:search_company] , 1)
 
     @companies = @companies.paginate(page: params[:page], per_page: 4)
     @student_id = current_student.id

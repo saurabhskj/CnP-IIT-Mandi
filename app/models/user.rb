@@ -5,7 +5,6 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   has_one :contact_info, :foreign_key => :user_id, :dependent => :delete
-
   belongs_to :category
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :remember_me, :type, :first_name, :middle_name, :last_name,

@@ -2,26 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e39f2f34-848c-43ac-94f5-62adc89c2410" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/views/admin/company.html.erb" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/views/admin/internship.html.erb" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/views/admin/placement.html.erb" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/.Gemfile.swp" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/lib/resumes/4/rootkey.csv" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/migrate/20140505172207_create_companies.rb" afterPath="$PROJECT_DIR$/db/migrate/20140505172207_create_companies.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Gemfile.lock" afterPath="$PROJECT_DIR$/Gemfile.lock" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Gemfile" afterPath="$PROJECT_DIR$/Gemfile" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/admin_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/admin_controller.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/layouts/admin_layout.html.erb" afterPath="$PROJECT_DIR$/app/views/layouts/admin_layout.html.erb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/companies_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/companies_controller.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/company.rb" afterPath="$PROJECT_DIR$/app/models/company.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/companies/index.html.erb" afterPath="$PROJECT_DIR$/app/views/companies/index.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/resume.rb" afterPath="$PROJECT_DIR$/app/models/resume.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/routes.rb" afterPath="$PROJECT_DIR$/config/routes.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/schema.rb" afterPath="$PROJECT_DIR$/db/schema.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/seeds.rb" afterPath="$PROJECT_DIR$/db/seeds.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/stud_comp_reg.rb" afterPath="$PROJECT_DIR$/app/models/stud_comp_reg.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/student.rb" afterPath="$PROJECT_DIR$/app/models/student.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/user.rb" afterPath="$PROJECT_DIR$/app/models/user.rb" />
     </list>
     <ignored path="cnp-web.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -53,10 +38,19 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="seeds.rb" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="seeds.rb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/db/seeds.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="56" column="42" selection-start="1776" selection-end="1776" vertical-scroll-proportion="0.47460595" vertical-offset="569" max-vertical-offset="1200">
+            <state line="56" column="42" selection-start="1776" selection-end="1776" vertical-scroll-proportion="0.0" vertical-offset="569" max-vertical-offset="1200">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="company.rb" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/models/company.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="3" column="76" selection-start="211" selection-end="211" vertical-scroll-proportion="0.078809105" vertical-offset="0" max-vertical-offset="571">
               <folding />
             </state>
           </provider>
@@ -65,7 +59,7 @@
       <file leaf-file-name="stud_degree_info.rb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/models/stud_degree_info.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="5" column="20" selection-start="194" selection-end="194" vertical-scroll-proportion="0.0" vertical-offset="75" max-vertical-offset="210">
+            <state line="5" column="20" selection-start="194" selection-end="194" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="210">
               <folding />
             </state>
           </provider>
@@ -74,16 +68,7 @@
       <file leaf-file-name="company.html.erb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/admin/company.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="32" column="44" selection-start="934" selection-end="934" vertical-scroll-proportion="0.0" vertical-offset="345" max-vertical-offset="1155">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="student.rb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/models/student.rb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="7" column="80" selection-start="308" selection-end="308" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="330">
+            <state line="32" column="44" selection-start="934" selection-end="934" vertical-scroll-proportion="-5.625" vertical-offset="345" max-vertical-offset="1155">
               <folding />
             </state>
           </provider>
@@ -147,7 +132,6 @@
         <option value="$PROJECT_DIR$/app/models/resume.rb" />
         <option value="$PROJECT_DIR$/config/routes.rb" />
         <option value="$PROJECT_DIR$/app/views/layouts/admin_layout.html.erb" />
-        <option value="$PROJECT_DIR$/app/models/user.rb" />
         <option value="$PROJECT_DIR$/app/models/student.rb" />
         <option value="$PROJECT_DIR$/app/models/degree.rb" />
         <option value="$PROJECT_DIR$/db/migrate/20140507134729_create_stud_degree_infos.rb" />
@@ -156,12 +140,13 @@
         <option value="$PROJECT_DIR$/app/models/stud_comp_reg.rb" />
         <option value="$PROJECT_DIR$/app/views/companies/index.html.erb" />
         <option value="$PROJECT_DIR$/app/models/stud_degree_info.rb" />
-        <option value="$PROJECT_DIR$/app/controllers/companies_controller.rb" />
         <option value="$PROJECT_DIR$/app/controllers/admin_controller.rb" />
-        <option value="$PROJECT_DIR$/app/models/company.rb" />
         <option value="$PROJECT_DIR$/app/models/job_type.rb" />
         <option value="$PROJECT_DIR$/db/migrate/20140505172207_create_companies.rb" />
         <option value="$PROJECT_DIR$/db/seeds.rb" />
+        <option value="$PROJECT_DIR$/app/models/company.rb" />
+        <option value="$PROJECT_DIR$/app/controllers/companies_controller.rb" />
+        <option value="$PROJECT_DIR$/app/models/user.rb" />
       </list>
     </option>
   </component>
@@ -933,11 +918,6 @@
         <state line="25" column="37" selection-start="850" selection-end="850" vertical-scroll-proportion="-3.1666667" vertical-offset="299" max-vertical-offset="990" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/user.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="16" selection-start="774" selection-end="774" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="525" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/db/migrate/20140507134729_create_stud_degree_infos.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="5" column="26" selection-start="191" selection-end="191" vertical-scroll-proportion="0.13812155" vertical-offset="0" max-vertical-offset="543" />
@@ -957,12 +937,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/models/stud_comp_reg.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="93" selection-start="385" selection-end="385" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="240" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/admin/company.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="32" column="44" selection-start="934" selection-end="934" vertical-scroll-proportion="0.0" vertical-offset="345" max-vertical-offset="1155">
+        <state line="7" column="93" selection-start="385" selection-end="385" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="240">
           <folding />
         </state>
       </provider>
@@ -970,25 +945,6 @@
     <entry file="file://$PROJECT_DIR$/app/views/companies/index.html.erb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="30" column="25" selection-start="1013" selection-end="1013" vertical-scroll-proportion="0.08102767" vertical-offset="409" max-vertical-offset="1155" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/companies_controller.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="26" column="83" selection-start="921" selection-end="921" vertical-scroll-proportion="0.6998158" vertical-offset="10" max-vertical-offset="660" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/stud_degree_info.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="20" selection-start="194" selection-end="194" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="210">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/student.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="80" selection-start="308" selection-end="308" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="330">
-          <folding />
-        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/models/resume.rb">
@@ -1001,13 +957,6 @@
     <entry file="file://$PROJECT_DIR$/db/migrate/20140505172207_create_companies.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="13" column="46" selection-start="324" selection-end="324" vertical-scroll-proportion="0.35911602" vertical-offset="0" max-vertical-offset="543">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/company.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="22" selection-start="282" selection-end="282" vertical-scroll-proportion="0.16574585" vertical-offset="0" max-vertical-offset="543">
           <folding />
         </state>
       </provider>
@@ -1035,7 +984,49 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/db/seeds.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="56" column="42" selection-start="1776" selection-end="1776" vertical-scroll-proportion="0.47460595" vertical-offset="569" max-vertical-offset="1200">
+        <state line="56" column="42" selection-start="1776" selection-end="1776" vertical-scroll-proportion="0.0" vertical-offset="569" max-vertical-offset="1200">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/stud_degree_info.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="5" column="20" selection-start="194" selection-end="194" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="210">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/student.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="7" column="80" selection-start="308" selection-end="308" vertical-scroll-proportion="0.19337016" vertical-offset="0" max-vertical-offset="543">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/admin/company.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="32" column="44" selection-start="934" selection-end="934" vertical-scroll-proportion="-5.625" vertical-offset="345" max-vertical-offset="1155">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/user.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="6" column="72" selection-start="337" selection-end="337" vertical-scroll-proportion="0.16574585" vertical-offset="0" max-vertical-offset="543">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/companies_controller.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="9" column="24" selection-start="254" selection-end="254" vertical-scroll-proportion="0.24861878" vertical-offset="0" max-vertical-offset="660">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/company.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="3" column="76" selection-start="211" selection-end="211" vertical-scroll-proportion="0.078809105" vertical-offset="0" max-vertical-offset="571">
           <folding />
         </state>
       </provider>

@@ -9,9 +9,9 @@ class Company < ActiveRecord::Base
 
   def self.search(name, job_type)
     if name
-      find(:all, :conditions => ['name LIKE ? AND job_type LIKE ?', "#{name}%", "#{job_type}"])
+      find(:all, :conditions => ['name LIKE ? AND job_type_id = ?', "#{name}%", "#{job_type}"])
     else
-      find(:all, :conditions => ['job_type LIKE ?', "#{job_type}"])
+      find(:all, :conditions => ['job_type_id = ?', "#{job_type}"])
     end
   end
 
