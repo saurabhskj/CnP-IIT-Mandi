@@ -16,11 +16,11 @@
 <%= form_tag  :url=> {:action => :index}, :method => 'get' do %>
 
     <!-- text_field_tag :search1, params[:search1], :placeholder => "Enter points to transfer: " -->
-
-    <%= text_field_tag :search_company, params[:search_company], :placeholder => "Search Companies" %>
-    <br/>
-    <%= submit_tag 'Search' %>
-
+    <div style="margin-left: 1%">
+        <%= text_field_tag :search_company, params[:search_company], :placeholder => "Search Companies" %>
+        <br/>
+        <%= submit_tag 'Search' %>
+    </div>
     <table class="table table-striped" style="width: 100%">
       <thead>
       <tr>

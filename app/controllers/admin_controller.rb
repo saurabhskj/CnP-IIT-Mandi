@@ -1,5 +1,6 @@
 class AdminController < ApplicationController
   before_filter :admin_privilege
+  layout 'admin_layout'
 
   def new
     @admin = Admin.new

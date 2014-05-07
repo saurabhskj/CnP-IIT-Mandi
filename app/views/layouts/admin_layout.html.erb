@@ -22,9 +22,6 @@
         s.parentNode.insertBefore(wf, s);
     })(); </script>
 
-<% if user_signed_in? %>
-    Signed in as <%= current_user.email %>
-<% end %>
 <div class="navbar">
   <div class="navbar navbar-inverse">
     <div class="navbar-inner">
@@ -37,39 +34,19 @@
         <li><a href=<%= forums_path %>>Forums</a></li>
         <li class="divider-vertical"></li>
       </ul>
+
       <ul class="nav pull-right">
         <li class="dropdown">
           <a href="" class="dropdown-toggle" data-toggle="dropdown">
-            User
+            <%= current_admin.first_name %>
             <b class="caret"></b>
           </a>
           <ul class="dropdown-menu">
-            <% unless user_signed_in? %>
-                <li><a href="<%= new_student_session_path %>"> Sign In</a> </li>
-                <li><a href="<%= new_student_registration_path %>"> Sign Up</a> </li>
-            <% else %>
-                <li><a href="<%= my_profile_path %>">My Profile</a></li>
-                <li><a href="<%= destroy_user_session_path %>">Sign Out</a></li>
-            <% end %>
+          <li><a href="<%= destroy_admin_session_path %>">Sign Out</a></li>
           </ul>
 
         </li>
 
-        <li class="dropdown">
-          <a href="" class="dropdown-toggle" data-toggle="dropdown">
-            Admin
-            <b class="caret"></b>
-          </a>
-          <ul class="dropdown-menu">
-            <% unless user_signed_in? %>
-                <li><a href="<%= new_admin_session_path %>"> Sign In</a> </li>
-            <% else %>
-                <li><a href="<%= my_profile_path %>">My Profile</a></li>
-                <li><a href="<%= destroy_admin_session_path %>">Sign Out</a></li>
-            <% end %>
-          </ul>
-
-        </li>
       </ul>
     </div>
   </div>

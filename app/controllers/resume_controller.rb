@@ -21,7 +21,7 @@ class ResumeController < ApplicationController
       %x(mkdir lib/resumes/"#{student_id}")
     end
 
-  #  puts "#{params}"
+    # puts "#{params}"
 
     if params[:upload].nil? == false
       Resume.upload(student_id, params[:upload][:file])
@@ -39,10 +39,10 @@ class ResumeController < ApplicationController
       download(params[:resume_id].to_i)
     end
 
-    respond_to do |format|
-      format.html {render}
-      format.json {render :json}
-    end
+   # respond_to do |format|
+    #  format.html {render}
+    #  format.json {render :json}
+   # end
   end
 
 
