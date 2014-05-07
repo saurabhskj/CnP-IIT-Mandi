@@ -11,9 +11,15 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140506170309) do
+ActiveRecord::Schema.define(:version => 20140507154915) do
 
   create_table "admins", :force => true do |t|
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "branches", :force => true do |t|
+    t.string   "name"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
@@ -38,13 +44,15 @@ ActiveRecord::Schema.define(:version => 20140506170309) do
   create_table "companies", :force => true do |t|
     t.string   "name"
     t.string   "location"
-    t.string   "job_type"
+    t.integer  "job_type_id"
     t.string   "category"
     t.string   "profile"
     t.integer  "requirement"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
   end
+
+  add_index "companies", ["name", "job_type_id"], :name => "index_companies_on_name_and_job_type_id", :unique => true
 
   create_table "contact_infos", :force => true do |t|
     t.integer  "user_id"
@@ -56,9 +64,22 @@ ActiveRecord::Schema.define(:version => 20140506170309) do
     t.datetime "updated_at",     :null => false
   end
 
+  create_table "degrees", :force => true do |t|
+    t.string   "name"
+    t.integer  "duration"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
   create_table "forums", :force => true do |t|
     t.string   "title"
     t.text     "content"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "job_types", :force => true do |t|
+    t.string   "name"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
@@ -78,6 +99,17 @@ ActiveRecord::Schema.define(:version => 20140506170309) do
     t.boolean  "placed"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
+    t.integer  "resume_id"
+  end
+
+  create_table "stud_degree_infos", :force => true do |t|
+    t.integer  "student_id"
+    t.integer  "degree_id"
+    t.integer  "branch_id"
+    t.integer  "year_of_grad"
+    t.string   "enrolment_number"
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
   end
 
   create_table "students", :force => true do |t|

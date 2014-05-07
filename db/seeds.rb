@@ -44,15 +44,32 @@ category_list.each do |name|
   Category.create(name: name).save
 end
 
+job_type = ["Intern", "Full Time"]
+job_type.each do |name|
+  JobType.create(name: name)
+end
 
 company_list = [
-    ["Amazon", "Software Development Engineer", "intern", "Hyderabad", 5],
-    ["Facebook", "Software Development Engineer", "full time", "California", 3],
-    ["Google", "Product Manager", "full time", "Silicon Valley", 2],
-    ["Microsoft","Security Engineer", "intern", "Bangalore", 3],
-    ["Tower Research","System Research", "full time", "Bangalore", 2]
+    ["Amazon", "Software Development Engineer", 1, "Hyderabad", 5],
+    ["Facebook", "Software Development Engineer", 2, "California", 3],
+    ["Google", "Product Manager", 2, "Silicon Valley", 2],
+    ["Microsoft","Security Engineer", 1, "Bangalore", 3],
+    ["Tower Research","System Research", 2, "Bangalore", 2]
 ]
 
 company_list.each do |name, category, job_type, location, req|
-  Company.create(name: name, category: category, job_type: job_type, location: location, requirement: req)
+  Company.create(name: name, category: category, job_type_id: job_type, location: location, requirement: req)
+end
+
+
+degrees = [["B.Tech", 4], ["M.S.", 2], ["P.H.D.", 5]]
+
+degrees.each do |name, dur|
+  Degree.create(name: name, duration: dur)
+end
+
+branch_list = ["Computer Science Engineering", "Electrical Engineering", "Mechanical Engineering"]
+
+branch_list.each do |name|
+  Branch.create(name: name)
 end

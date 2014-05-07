@@ -7,7 +7,8 @@ class CompaniesController < ApplicationController
   def index
 
     puts "company name ----------------------- #{params[:search_company]}"
-    @companies  = Company.search(params[:search_company])
+    job_type = "Intern"
+    @companies  = Company.search(params[:search_company] , job_type)
 
     @companies = @companies.paginate(page: params[:page], per_page: 4)
     @student_id = current_student.id
@@ -16,12 +17,14 @@ class CompaniesController < ApplicationController
     Dir.foreach("lib/resumes/#{@student_id}") do |file_name|
       next if file_name == '.' or file_name == '..'
       @resume_name.push([file_name])
-      puts "resume ------- #{file_name} \n\n"
+    #  puts "resume ------- #{file_name} \n\n"
     end
 
+    puts "params selected on company reg. page: -- #{params}"
     puts "Company id selected: ------ #{params[:company_id]}"
     unless params[:company_id].nil?
-      StudCompReg.create_registration(@student_id, params[:company_id].to_i)
+      res_id = 9
+      StudCompReg.create_registration(@student_id, params[:company_id].to_i, res_id)
       redirect_to companies_path
       return
     end

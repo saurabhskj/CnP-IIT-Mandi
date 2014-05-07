@@ -8,15 +8,19 @@ class Resume < ActiveRecord::Base
   validates_uniqueness_of :student_id, :scope => :name
 
   def self.upload(student_id, file_name)
-    puts "error: \n\n #{directory = "lib/resumes/#{student_id}"} \n\n"
+    puts "Directory number: \n\n #{directory = "lib/resumes/#{student_id}"} \n\n"
     path = File.join(directory, file_name)
     #write the file
     File.open(path, "wb") {|file| file.write(file_name)}
 
+    puts "file name : ------------ #{file_name} \n\n"
+
     saved = Resume.create(name: file_name, student_id: student_id).save
     unless saved
-      cur_resume = Resume.where("name LIKE #{file_name}% and student_id = #{student_id}")[0]
-      Resume.update(cur_resume.id, updated_id: Time.now)
+      cur_resume = Resume.where("name LIKE '#{file_name}%' and student_id = #{student_id}")[0]
+      #Resume.update(cur_resume.id, updated_id: Time.now)
+      cur_resume.updated_at = Time.now
+      cur_resume.save
     end
 
   end

@@ -38,7 +38,7 @@
       <% @companies.each do |company| %>
           <tr>
             <td>
-              <%= select_tag 'resume_list', options_for_select(@resume_name) %>
+              <%= select_tag 'option', options_for_select(@resume_name), :include_blank  => false %>
             </td>
 
             <td>

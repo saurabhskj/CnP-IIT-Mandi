@@ -27,7 +27,11 @@ CnpWeb::Application.routes.draw do
     root :to => 'admin#index'
     match '/resume', :to => 'resume#index', via: [:get, :post]
     match '/resume/upload', to: 'resume#upload_file', via: [:get, :post]
+    #match '/admin/placement', to: 'admin#placement', via: [:get, :post]
+    #match '/admin/internship', to: 'admin#internship', via: [:get, :post]
+    match '/admin/company', to: 'admin#company', via: [:get, :post]
   end
+
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

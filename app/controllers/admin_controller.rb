@@ -13,10 +13,19 @@ class AdminController < ApplicationController
       if @admin.save
         format.html{ redirect_to root_path }
       else
-        format.html {render 'new'}
+        format.html { render 'new' }
         format.json { render json: @admin.errors, status: :unprocessable_entity }
       end
     end
+  end
+
+  def company
+    @applied_companies = Company.all.map {|comp| comp.name}
+    @applied_companies = @applied_companies.uniq
+    @job_type = JobType.all.map {|type| type.name}
+
+    @branch_name = Branch.all.map {}
+
   end
 
   def index
