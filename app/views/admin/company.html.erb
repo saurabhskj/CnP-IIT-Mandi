@@ -1,71 +1,93 @@
 <% if flash[:message] %>
-    <div class="alert alert-success">
-      <button type="button" class="close" data-dismiss="alert">&times;</button>
-      <%= flash[:message] %>
-    </div>
+<div class="alert alert-success">
+  <button type="button" class="close" data-dismiss="alert">&times;</button>
+  <%= flash[:message] %>
+</div>
 <% end %>
 
 <% if flash[:alert] %>
-    <div class="alert alert-error">
-      <button type="button" class="close" data-dismiss="alert">&times;</button>
-      <%= flash[:alert] %>
-    </div>
+<div class="alert alert-error">
+  <button type="button" class="close" data-dismiss="alert">&times;</button>
+  <%= flash[:alert] %>
+</div>
 <% end %>
 
 <div style="margin-left: 0%">
-  <%= form_tag  :url=> {:action => :company}, :method => 'get' do %>
+<%= form_tag  :url=> {:action => :company}, :method => 'get' do %>
 
-      <!-- text_field_tag :search1, params[:search1], :placeholder => "Enter points to transfer: " -->
+  <!-- text_field_tag :search1, params[:search1], :placeholder => "Enter points to transfer: " -->
+
+  <table class="table table-striped" style="width: 100%">
+    <thead>
+    <tr>
+      <th>Company Name</th>
+      <th>Job Type</th>
+      <th>Branch</th>
+    </tr>
+    </thead>
+
+    <tbody>
+        <tr>
+          <td>
+            <%= select_tag 'company_name', options_for_select(@applied_companies, @c_name),include_blank: :true %>
+          </td>
+
+          <td>
+            <%= select_tag 'job_type_name', options_for_select(@job_type, @j_name) %>
+          </td>
+
+          <td>
+            <%= select_tag 'branch_name', options_for_select(@branch_name, @b_name), :include_blank => true%>
+          </td>
+
+        </tr>
+
+    </tbody>
+  </table>
+
+  <!--= text_field_tag :sql_query, params[:sql_query], :placeholder => "Search Companies" -->
+
+  <button style="margin-left: 1%;" class="btn" value="filter" name="filter" type="submit">Filter</button>
+
+      <p/>
+      <div style="font-family: Georgia; font-size: 20px">Application Status</div>
 
       <table class="table table-striped" style="width: 100%">
         <thead>
         <tr>
+          <th>Select All</th>
           <th>Company Name</th>
-          <th>Job Type</th>
+          <th>Enrolment Number</th>
+          <th>Student Name</th>
           <th>Branch</th>
         </tr>
         </thead>
 
         <tbody>
-        <% @companies.each do |company| %>
+        <% @applications.each do |app| %>
             <tr>
               <td>
-                <%= select_tag 'company_list', options_for_select(@resume_name) %>
+                <%= check_box_tag "application_ids[]", app.id %>
               </td>
 
               <td>
-                <%= select_tag 'resume_list', options_for_select(@resume_name) %>
+               <%= Company.find(app.company_id).name %>
               </td>
-
               <td>
-                <%= select_tag 'resume_list', options_for_select(@resume_name) %>
+                <% @st = Student.find(app.student_id)  %>
+                <%= @st.stud_degree_info.enrolment_number %>
               </td>
 
-              <td>
-                <% if (reg = StudCompReg.where("student_id = #{@student_id} and company_id = #{company.id}").first.nil?)%>
-                    <button type="submit" class="btn btn-info" name="company_id" value="<%= company.id %>">Apply</button>
-                <% else %>
-                    <button type="submit" class="btn btn-info" name="company_id" disabled value="<%= company.id %>">Applied</button>
-                <% end %>
-
-              </td>
-              <td><%= company.name %></td>
-              <td><%= company.category %></td>
-              <td><%= "2 Months" %> </td>
-              <td><%= company.location %></td>
-              <td><%= company.requirement %></td>
+              <td><%= "#{@st.first_name} #{@st.last_name}" %></td>
+              <td><%= Branch.find(@st.stud_degree_info.branch_id).name %> </td>
               <br/>
             </tr>
         <% end %>
         </tbody>
       </table>
 
-  <% end %>
-</div>
-
-<div class="apple_pagination">
-  <div class="page_info">
-    <%= page_entries_info @companies %>
-  </div>
-  <%= will_paginate @companies, :container => false %>
+      <%= text_field_tag :archive_name, params[:archive_name], :placeholder => "Archive name .. " %>
+      <br/>
+      <%= submit_tag 'Download' %>
+<% end %>
 </div>

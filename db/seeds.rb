@@ -6,6 +6,27 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
+
+degrees = [["B.Tech", 4], ["M.S.", 2], ["P.H.D.", 5]]
+
+degrees.each do |name, dur|
+  Degree.create(name: name, duration: dur)
+end
+
+branch_list = ["Computer Science Engineering", "Electrical Engineering", "Mechanical Engineering"]
+
+branch_list.each do |name|
+  Branch.create(name: name)
+end
+
+category_list = [
+    "Gen", "OBC", "SC/ST", "Others"
+]
+
+category_list.each do |name|
+  Category.create(name: name).save
+end
+
 admin_list = [
     ["admin@iitmandi.ac.in", "admin","9999"],
     ["pc@iitmandi.ac.in", "admin","9998"]
@@ -23,7 +44,10 @@ end
 
 user_list = [
     ["user@iitmandi.ac.in", "demo","9999"],
-    ["saurabh@iitmandi.ac.in", "demo","9998"]
+    ["saurabh@iitmandi.ac.in", "demo","9998"],
+    ["pranav@iitmandi.ac.in", "demo","9998"],
+    ["sachin@iitmandi.ac.in", "demo","9998"],
+    ["shubham@iitmandi.ac.in", "demo","9998"]
 ]
 
 user_list.each do |email, password|
@@ -33,16 +57,10 @@ user_list.each do |email, password|
   #user.skip_confirmation_notification!
   user.save
   ContactInfo.create(user_id: user.id)
+  StudDegreeInfo.create(student_id: user.id, degree_id: 1, yead_of_grad: 2015, branch_id: 1)
   #user.contact_info.build.save
 end
 
-category_list = [
-    "Gen", "OBC", "SC/ST", "Others"
-]
-
-category_list.each do |name|
-  Category.create(name: name).save
-end
 
 job_type = ["Intern", "Full Time"]
 job_type.each do |name|
@@ -61,15 +79,3 @@ company_list.each do |name, category, job_type, location, req|
   Company.create(name: name, category: category, job_type_id: job_type, location: location, requirement: req)
 end
 
-
-degrees = [["B.Tech", 4], ["M.S.", 2], ["P.H.D.", 5]]
-
-degrees.each do |name, dur|
-  Degree.create(name: name, duration: dur)
-end
-
-branch_list = ["Computer Science Engineering", "Electrical Engineering", "Mechanical Engineering"]
-
-branch_list.each do |name|
-  Branch.create(name: name)
-end
