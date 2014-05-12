@@ -33,7 +33,7 @@ admin_list = [
 ]
 
 admin_list.each do |email, password|
-  admin = Admin.new(:email => email, :password => password, :password_confirmation => password) #, name: "Saurabh")
+  admin = Admin.new(first_name: 'Admin', :email => email, :password => password, :password_confirmation => password) #, name: "Saurabh")
 #  admin.confirmation_token = nil
 #  admin.skip_confirmation!
 #  admin.skip_confirmation_notification!
@@ -57,7 +57,7 @@ user_list.each do |email, password|
   #user.skip_confirmation_notification!
   user.save
   ContactInfo.create(user_id: user.id)
-  StudDegreeInfo.create(student_id: user.id, degree_id: 1, yead_of_grad: 2015, branch_id: 1)
+  StudDegreeInfo.create(student_id: user.id, degree_id: 1,branch_id: 1)
   #user.contact_info.build.save
 end
 

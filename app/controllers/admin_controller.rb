@@ -75,9 +75,9 @@ class AdminController < ApplicationController
         time = Time.now.localtime.to_s
        # %x(mkdir admin/"#{time}")
         archive_name = "resume_#{time}.zip"
-        unless params[:archive_name].empty?
-          archive_name = params[:archive_name]+".zip"
 
+        unless params[:archive_name].empty?
+          archive_name = params[:archive_name]+"_#{time}.zip"
         end
         #zipfile_name = "admin/#{time}/#{archive_name}"
         zipfile_name = "admin/#{archive_name}"
@@ -101,8 +101,9 @@ class AdminController < ApplicationController
         puts "filenames are : #{file_names} \n student_ids: #{student_ids}\n\n"
 
         Zip::File.open(zipfile_name, Zip::File::CREATE) do |zipfile|
+        #Zip::ZipFile.open(zipfile_name, "w") do |zipfile|
           file_names.each_with_index do |filename, index|
-            zipfile.add(student_ids[index].to_s + "_#{filename}_#{company_names[index]}", "lib/resumes/#{student_ids[index]}/"+ filename)
+            zipfile.add(student_ids[index].to_s + "_#{filename.delete(".pdf")}_#{company_names[index]}.pdf", "lib/resumes/#{student_ids[index]}/"+ filename)
           end
           zipfile.get_output_stream("ReadMe") { |os| os.write "File Description to be given here." }
         end

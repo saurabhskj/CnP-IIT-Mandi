@@ -1,3 +1,9 @@
+<% if flash[:message] %>
+    <div class="alert alert-success">
+      <button type="button" class="close" data-dismiss="alert">&times;</button>
+      <%= flash[:message] %>
+    </div>
+<% end %>
 
 <p></p>
 <br/>
@@ -5,139 +11,196 @@
   <ul class="nav nav-tabs">
     <li class="active"><a href="#personal" data-toggle="tab">Personal Details</a></li>
     <li><a href="#contact" data-toggle="tab">Contact Details</a></li>
+    <li><a href="#education" data-toggle="tab">Educational Info</a></li>
   </ul>
   <div class="tab-content">
     <div class="tab-pane active" id="personal" style="margin-left: 1%">
-      <%= form_tag :url => {:action => :my_profile}, method: :get do %>
-        <div>
-            <%= "First Name: " %>
-            <% if @details.first_name.nil? %>
-                <%= text_field_tag :first_name, params[:first_name], :placeholder => "#{@details.first_name}" %>
-            <% else %>
-                <%= "#{@details.first_name}" %>
-            <% end %>
 
+      <p></p>
+      <form accept-charset="UTF-8" class="form-horizontal" method="post">
+        <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+        <div class="control-group">
+          <label class="control-label" for="first_name" style="font-weight: bold">First Name* :</label>
+          <div class="controls">
+            <input type="text" id="first_name" name="first_name" placeholder="eg. Saurabh" value="<%= @details.first_name  %>">
+          </div>
         </div>
-          <br/>
-          <div>
-            <%= "Middle Name: " %>
-            <% if @details.middle_name.nil? %>
-                <%= text_field_tag :middle_name, params[:middle_name], :placeholder => "#{@details.middle_name}" %>
-            <% else %>
-                <%= "#{@details.middle_name}" %>
-            <% end %>
+
+        <div class="control-group">
+          <label class="control-label" for="middle_name" style="font-weight: bold">Middle Name :</label>
+          <div class="controls">
+            <input type="text" id="middle_name" name="middle_name" placeholder="" value="<%= @details.middle_name %>">
           </div>
-          <br/>
+        </div>
 
-          <div>
-            <%= "Last Name: " %>
-            <% if @details.last_name.nil? %>
-                <%= text_field_tag :last_name, params[:last_name], :placeholder => "#{@details.last_name}" %>
-            <% else %>
-                <%= "#{@details.last_name}" %>
-            <% end %>
+        <div class="control-group">
+          <label class="control-label" for="last_name" style="font-weight: bold">Last Name* :</label>
+          <div class="controls">
+            <input type="text" id="last_name" name="last_name" placeholder="eg. Jain" value="<%= @details.last_name  %>">
           </div>
-          <br/>
+        </div>
 
-          <div>
-            <%= "Date of Birth (DD/MM/YYYY): " %>
-            <% if @details.dob.nil? %>
-                <%= text_field_tag :dob, params[:dob], :placeholder => "#{@details.dob}" %>
-            <% else %>
-                <%= "#{@details.dob}" %>
-            <% end %>
+        <div class="control-group">
+          <label class="control-label" for="dob" style="font-weight: bold">Date of Birth* :</label>
+          <div class="controls">
+            <input type="text" id="dob" name="dob" placeholder="eg. 01/01/1990" value="<%= @details.dob %>">
           </div>
-          <br/>
+        </div>
 
-          <div>
-            <%= "Gender: " %>
-
-            <% if @details.gender.nil? %>
-                <%= text_field_tag :gender, params[:gender], :placeholder => "#{@details.gender}" %>
-            <% else %>
-                <%= "#{@details.first_name}" %>
-            <% end %>
+        <div class="control-group">
+          <label class="control-label" for="gender" style="font-weight: bold">Gender :</label>
+          <div class="controls">
+            <input type="text" id="gender" name="gender" placeholder="eg. Male" value="<%= @details.gender  %>">
           </div>
-          <br/>
+        </div>
 
-          <div>
-            <%= "Category: " %>
-            <%= select_tag 'cat_list', options_for_select(Category.all.collect{ |cat| [cat.name] }) %>
+        <div class="control-group">
+          <label class="control-label" for="category_name" style="font-weight: bold">Category :</label>
+          <div class="controls">
+            <%= select_tag 'category_name', options_for_select(Category.all.collect{ |cat| [cat.name] }) %>
           </div>
+        </div>
 
-          <br/>
-
-          <div class="accordion-heading" style="font-family: Georgia; font-size: 30px">Hostel Information:</div>
-            <br/>
-
-          <div>
-            <%= "Hostel Name: " %>
-
-            <% if @details.hostel_name.nil? %>
-                <%= text_field_tag :hostel_name, params[:hostel_name], :placeholder => "#{}" %>
-            <% else %>
-                <%= "#{@details.hostel_name}" %>
-            <% end %>
-
+    <!--    <div class="accordion-heading" style="font-family: Georgia; font-size: 30px">Hostel Information:</div>
+    -->
+        <div class="control-group">
+          <label class="control-label" for="hostel_name" style="font-weight: bold">Hostel Name* :</label>
+          <div class="controls">
+            <input type="text" id="hostel_name" name="hostel_name" placeholder="eg. Parashar Hostel" value="<%= @details.hostel_name %>">
           </div>
-          <br/>
+        </div>
 
-          <div>
-            <%= "Hostel Address: " %>
-
-            <% if @details.hostel_address.nil? %>
-                <%= text_area_tag :hostel_address, params[:hostel_address], :placeholder => "#{}" %>
-            <% else %>
-                <%= "#{@details.hostel_address}" %>
-            <% end %>
-
+        <div class="control-group">
+          <label class="control-label" for="hostel address" style="font-weight: bold">Hostel Address* :</label>
+          <div class="controls">
+        <!--    <input type="text" id="gender" name="gender" placeholder="eg. Male" value="<= @details.gender  %>"> -->
+            <textarea id="hostel_address" name="hostel_address" placeholder="" value="<%= @details.hostel_address %>"> </textarea>
           </div>
-          <br/>
+        </div>
 
-          <div>
-            <%= "City: " %>
-
-            <% if @details.city.nil? %>
-                <%= text_field_tag :city, params[:city], :placeholder => "#{}" %>
-            <% else %>
-                <%= "#{@details.city}" %>
-            <% end %>
+        <div class="control-group">
+          <label class="control-label" for="city" style="font-weight: bold">City :</label>
+          <div class="controls">
+            <input type="text" id="city" name="city" placeholder="eg. Mandi" value="<%= @details.city %>">
           </div>
-          <br/>
+        </div>
 
-          <div>
-            <%= "State: " %>
-
-            <% if @details.state.nil? %>
-                <%= text_field_tag :state, params[:state], :placeholder => "#{}" %>
-            <% else %>
-                <%= "#{@details.state}" %>
-            <% end %>
-
+        <div class="control-group">
+          <label class="control-label" for="state" style="font-weight: bold">State :</label>
+          <div class="controls">
+            <input type="text" id="state" name="state" placeholder="eg. Himachal Pradesh" value="<%= @details.state  %>">
           </div>
-          <br/>
+        </div>
 
-          <%= submit_tag 'Submit' %>
-      <% end %>
+        <div class="control-group">
+          <div class="controls">
+            <button type="submit" name="personal_info" class="btn" style="">Submit</button>
+          </div>
+        </div>
+
+
+      </form>
+
     </div>
 
     <div class="tab-pane" id="contact">
-      <%= form_tag :url => {:action => :my_profile}, method: :get do %>
-          <div> <%= "Personal Email: " %>  <%= text_field_tag :personal_email, params[:personal_email], :placeholder => "#{@contact_info.personal_email}" %>
-          </div>
 
-          <div> <%= "Phone Number 1: " %>  <%= text_field_tag :phone_number1, params[:phone_number1], :placeholder => "#{@contact_info.phone_number1}" %>
-          </div>
+      <form accept-charset="UTF-8" class="form-horizontal" method="post">
+        <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
 
-          <div> <%= "Phone Number 2: " %>  <%= text_field_tag :phone_number2, params[:phone_number2], :placeholder => "#{@contact_info.phone_number2}" %>
+        <div class="control-group">
+          <label class="control-label" for="personal_email" style="font-weight: bold">Personal Email :</label>
+          <div class="controls">
+            <input type="text" id="personal_email" name="personal_email" placeholder="" autofocus="true" value="<%= @contact_info.personal_email %>">
           </div>
+        </div>
 
-          <br/>
-          <%= submit_tag 'Submit' %>
-          <!--   <button type="submit" class="btn btn-info"> Submit</button> -->
-      <% end %>
+        <div class="control-group">
+          <label class="control-label" for="phone_number1" style="font-weight: bold">Phone Number1* :</label>
+          <div class="controls">
+            <input type="text" id="phone_number1" name="phone_number1" placeholder="eg. 9999912345" value="<%= @contact_info.phone_number1 %>">
+          </div>
+        </div>
+
+        <div class="control-group">
+          <label class="control-label" for="phone_number2" style="font-weight: bold">Phone Number2 :</label>
+          <div class="controls">
+            <input type="text" id="phone_number2" name="phone_number2" placeholder="" autofocus="true" value="<%= @contact_info.phone_number2 %>">
+          </div>
+        </div>
+
+        <div class="control-group">
+
+          <div class="controls">
+            <button type="submit" name="submit_contact_info" class="btn" style="">Submit</button>
+          </div>
+        </div>
+
+      </form>
     </div>
-  </div>
+
+    <div class="tab-pane" id="education" style="margin-left: 1%">
+      <!-- form_tag :url => {:action => :my_profile}, method: :get do %>
+          <div> < "Personal Email: " %>  <= text_field_tag :personal_email, params[:personal_email], :placeholder => "#{@contact_info.personal_email}" %>
+          </div>
+
+          Branch: < select_tag 'branch_name', options_for_select(@branch, @b_name) %>
+          <br/>
+          Degree: <= select_tag 'degree_name', options_for_select(@degree, @d_name) %>
+          <br/>
+
+          <div> < "Enrolment Number: " %>  <= text_field_tag :enrol_number, params[:enrol_number], :placeholder => "" %>
+          </div>
+          <br/>
+          < submit_tag 'Submit' %>
+          <!--   <button type="submit" class="btn btn-info"> Submit</button> -->
+
+      <form accept-charset="UTF-8" class="form-horizontal" method="post">
+        <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+        <div class="control-group">
+          <label class="control-label" for="enrol_number" style="font-weight: bold">Enrolment Number* :</label>
+          <div class="controls">
+            <input type="text" id="enrol_number" name="enrol_number" placeholder="BXXXXX" value="<%= @enrol_number %>">
+          </div>
+        </div>
+
+
+        <div class="control-group">
+          <label class="control-label" for="year_of_grad" style="font-weight: bold">Graduation Year* :</label>
+          <div class="controls">
+            <input type="text" id="year_of_grad" name="year_of_grad" placeholder="eg. 2015" value="<%= @year  %>">
+          </div>
+        </div>
+
+        <div class="control-group">
+          <label class="control-label" for="degree_name" style="font-weight: bold">Degree :</label>
+          <div class="controls">
+            <%= select_tag 'degree_name', options_for_select(@degree_names, @d_name) %>
+          </div>
+        </div>
+
+
+        <div class="control-group">
+          <label class="control-label" for="branch_name" style="font-weight: bold">Branch :</label>
+          <div class="controls">
+            <%= select_tag 'branch_name', options_for_select(@branch_names, @b_name) %>
+          </div>
+        </div>
+
+        <br/>
+
+        <div class="control-group">
+          <div class="controls">
+            <button type="submit" name="submit_degree_info" class="btn" style="font-weight: bold">Submit</button>
+          </div>
+        </div>
+      </form>
+
+    </div>
+
+    </div>
 </div>
 
 

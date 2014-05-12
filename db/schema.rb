@@ -48,8 +48,9 @@ ActiveRecord::Schema.define(:version => 20140507154915) do
     t.string   "category"
     t.string   "profile"
     t.integer  "requirement"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+    t.date     "arrival_date"
   end
 
   add_index "companies", ["name", "job_type_id"], :name => "index_companies_on_name_and_job_type_id", :unique => true

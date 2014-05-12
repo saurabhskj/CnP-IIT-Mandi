@@ -20,10 +20,13 @@ class CompaniesController < ApplicationController
     #  puts "resume ------- #{file_name} \n\n"
     end
 
-    puts "params selected on company reg. page: -- #{params}"
-    puts "Company id selected: ------ #{params[:company_id]}"
+    @r_name = ""
+    puts "resume names: -- #{@resume_name} \n\n"
+    puts "params selected on company reg. page: -- #{params}\n\n"
+
+    puts "Company id selected: ------ #{params[:company_id]}, --- #{@r_name}"
     unless params[:company_id].nil?
-      res_id = 9
+      res_id = Resume.where("student_id = #{@student_id}").first.id
       StudCompReg.create_registration(@student_id, params[:company_id].to_i, res_id)
       redirect_to companies_path
       return
@@ -35,4 +38,25 @@ class CompaniesController < ApplicationController
     end
   end
 
+  def profile
+
+    @applied_companies = Company.all.map {|com| com.name}
+    @resume_name = Resume.all.map {|res| res.name}
+    @r_name = ""
+    @companies = Company.all
+
+    puts "resume_name:----------- #{params[:resume_name]} \t--------- \n\n"
+
+    @r_name = params[:resume_name]
+
+    respond_to do |format|
+      format.html {render}
+      format.json {render :json}
+    end
+
+  end
+
+  def status
+
+  end
 end

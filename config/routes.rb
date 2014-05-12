@@ -15,6 +15,7 @@ CnpWeb::Application.routes.draw do
     root :to => 'students#index'
     match '/resume', :to => 'resume#index', via: [:get, :post]
     match '/resume/upload', to: 'resume#upload_file', via: [:get, :post]
+    match 'companies/profile', to: 'companies#profile', via: [:get ,:post]
   end
 
   devise_for :admin, :controllers => {:registrations => 'admin/registrations', :sessions => 'admin/sessions'}
