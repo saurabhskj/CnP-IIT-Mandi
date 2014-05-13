@@ -1,0 +1,63 @@
+<form accept-charset="UTF-8" class="form" method="post" style="margin-left: 2%">
+  <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+  <div class="control-group">
+    <div class="controls">
+      <input type="search" name="student_name" placeholder="Search for a student: ">
+    </div>
+    <button  type="submit" class="btn btn-default" name="search_student">Search</button>
+  </div>
+
+  <br/>
+  <table class="table table-bordered" style="width: 100%">
+    <thead>
+    <tr>
+      <th>#</th>
+      <th>Student Name</th>
+      <th>Enrolment Number</th>
+      <th>Branch</th>
+      <th>Degree</th>
+      <th>Year of Graduation</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <% @students.each_with_index do |student, index| %>
+        <tr>
+
+          <td>
+            <%= check_box_tag "student_ids[]", student.id %>
+          </td>
+
+          <td>
+            <%= "#{student.first_name} #{student.last_name}" %>
+          </td>
+
+          <td>
+            <%= student.stud_degree_info.enrolment_number %>
+          </td>
+
+          <td>
+            <%= Branch.find(student.stud_degree_info.branch_id).name %>
+          </td>
+
+          <td>
+            <%= Degree.find(student.stud_degree_info.degree_id).name %>
+          </td>
+
+          <td>
+            <%= student.stud_degree_info.year_of_grad %>
+          </td>
+          <br/>
+        </tr>
+    <% end %>
+    </tbody>
+  </table>
+
+  <div class="control-group">
+    <div class="controls">
+      <button  type="submit" class="btn btn-small" name="send_mail">Send Mail ..</button>
+    </div>
+  </div>
+
+</form>

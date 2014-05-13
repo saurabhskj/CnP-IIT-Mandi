@@ -124,6 +124,24 @@ class AdminController < ApplicationController
     send_file path, type: 'application/zip', :x_sendfile => true
   end
 
+  def mail
+    @students = Student.all
+    puts "Testing"
+    @students = Student.search(params[:student_name])
+    @students = @students.paginate(page: params[:page], per_page: 4)
+
+    if params[:send_mail]
+
+      flash[:mail_success] = "Mail successfully sent."
+      redirect_to admin_mail_path
+      return
+    end
+    respond_to do |format|
+      format.html {render}
+      format.json {render :json}
+    end
+  end
+
   def index
 
   end

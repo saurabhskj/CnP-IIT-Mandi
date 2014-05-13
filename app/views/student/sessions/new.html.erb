@@ -1,0 +1,61 @@
+
+<!-- <= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
+  <div><= f.label :email %><br />
+  <= f.email_field :email, :autofocus => true %></div>
+
+  <div><= f.label :password %><br />
+  <= f.password_field :password %></div>
+
+  < if devise_mapping.rememberable? -%>
+    <div><= f.check_box :remember_me %> <= f.label :remember_me %></div>
+  < end -%>
+
+  <div><= f.submit "Sign in" %></div>
+< end %>
+
+<= render "users/shared/links" %>
+
+-->
+
+
+<form id="new_student" accept-charset="UTF-8" class="form-horizontal" action="<%= session_path(resource_name) %>" method="post" style="margin-left: 30%; margin-top: 10%">
+  <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+  <div style="margin-left: 19%; font-size: 20px; font-family: Tahoma" >
+    Sign In
+  </div>
+
+  <br/>
+  <div class="control-group">
+   <!-- <label class="control-label" for="personal_email" style="font-weight: bold">Email :</label>
+   -->
+    <div class="controls">
+      <input type="email" id="student_email" name="student[email]" placeholder="Email" autofocus="true">
+    </div>
+  </div>
+
+  <div class="control-group">
+   <!-- <label class="control-label" for="password" style="font-weight: bold">Password :</label>
+    -->
+    <div class="controls">
+      <input type="password" id="student_password" name="student[password]" placeholder="Password">
+    </div>
+  </div>
+
+  <div class="control-group">
+    <!-- <label class="control-label" for="password" style="font-weight: bold">Password :</label>
+     -->
+    <div class="controls">
+      <input id="student_remember_me" name="student[remember_me]" value="1" type="checkbox">
+    </div>
+    <label class="controls" for="student_remember_me">Remember Me</label>
+  </div>
+
+  <div class="control-group">
+
+    <div class="controls">
+      <button type="submit" name="commit" class="btn btn-info" style="">Sign In</button>
+    </div>
+  </div>
+
+</form>

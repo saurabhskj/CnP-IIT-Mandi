@@ -31,6 +31,8 @@ CnpWeb::Application.routes.draw do
     #match '/admin/placement', to: 'admin#placement', via: [:get, :post]
     #match '/admin/internship', to: 'admin#internship', via: [:get, :post]
     match '/admin/company', to: 'admin#company', via: [:get, :post]
+    match '/admin/mail', to: 'admin#mail', via: [:get, :post]
+    match '/admin/student', to: 'admin#student', via: [:get, :post]
   end
 
 

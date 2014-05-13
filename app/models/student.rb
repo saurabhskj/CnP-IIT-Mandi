@@ -14,4 +14,12 @@ class Student < User
     %x(mkdir lib/resumes/"#{self.id}")
   end
 
+  def self.search(name)
+    if name.nil? == false and name.empty? == false
+      find(:all, :conditions => ['first_name LIKE ?', "%#{name}%"])
+    else
+      find(:all)
+    end
+  end
+
 end
