@@ -37,7 +37,7 @@
           </td>
 
           <td>
-            <%= select_tag 'branch_name', options_for_select(@branch_name, @b_name), :include_blank => true%>
+            <%= select_tag 'branch_name', options_for_select(@branch_name, @b_name), :include_blank => false%>
           </td>
 
         </tr>
@@ -79,7 +79,13 @@
               </td>
 
               <td><%= "#{@st.first_name} #{@st.last_name}" %></td>
-              <td><%= Branch.find(@st.stud_degree_info.branch_id).name %> </td>
+
+              <% @branch_id = @st.stud_degree_info.branch_id %>
+              <td>
+                <% unless @branch_id.nil? %>
+                    <%= Branch.find(@branch_id).name %>
+                <% end %>
+              </td>
               <br/>
             </tr>
         <% end %>

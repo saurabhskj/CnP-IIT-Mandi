@@ -46,8 +46,10 @@ class ProfileController < ApplicationController
     @degree_names = Degree.all.map {|dg| dg.name}
 
     @degree_info = current_student.stud_degree_info
-    @year = @degree_info.year_of_grad
-    @enrol_number = @degree_info.enrolment_number
+    unless @degree_info.nil?
+      @year = @degree_info.year_of_grad
+      @enrol_number = @degree_info.enrolment_number
+    end
 
     if params[:submit_degree_info]
      # puts "\n\n YES \n\n"

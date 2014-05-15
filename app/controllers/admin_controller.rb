@@ -1,6 +1,7 @@
 require 'will_paginate/array'
 require 'rubygems'
 require 'zip'
+require 'csv'
 
 class AdminController < ApplicationController
   before_filter :admin_privilege
@@ -40,7 +41,7 @@ class AdminController < ApplicationController
 
       job_type_id  =JobType.where("name like '#{@j_name}'")[0].id
       @companies = Company.where("name like '%#{@c_name}%' and job_type_id = #{job_type_id}")#.id
-
+      @applications = []
       if @b_name.empty?
        # branch_id = Branch.where("name like '#{@b_name}'")[0].id
         @student_ids = StudDegreeInfo.all.map {|stud| stud.student_id}
@@ -50,6 +51,7 @@ class AdminController < ApplicationController
       end
 
       @applications = []
+
       unless @companies.empty? or @student_ids.empty?
        # @applications = []
         @companies.each do |company|
@@ -67,6 +69,7 @@ class AdminController < ApplicationController
         @applications = []
       end
 
+      @applications = @applications.paginate(page: params[:page], per_page: 4)
     end
 
     if params[:commit] == "Download"
@@ -128,10 +131,19 @@ class AdminController < ApplicationController
     @students = Student.all
     puts "Testing"
     @students = Student.search(params[:student_name])
+    @s_name = params[:student_name]
     @students = @students.paginate(page: params[:page], per_page: 4)
 
     if params[:send_mail]
 
+      @student_ids = params[:student_ids]
+
+      unless @student_ids.nil? or @student_ids.empty?
+        @student_ids.each do |student_id|
+          subject = "Message from CnP Cell, IIT Mandi"
+          UserMailer.notify_email(student_id.to_i, subject, params[:message]).deliver
+        end
+      end
       flash[:mail_success] = "Mail successfully sent."
       redirect_to admin_mail_path
       return

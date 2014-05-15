@@ -11,6 +11,7 @@ class Student < User
 
   def create_details
     ContactInfo.create(user_id: self.id)
+    StudDegreeInfo.create(student_id: self.id)
     %x(mkdir lib/resumes/"#{self.id}")
   end
 

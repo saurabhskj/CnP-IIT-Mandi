@@ -41,7 +41,11 @@
       <ul class="nav pull-right">
         <li class="dropdown">
           <a href="" class="dropdown-toggle" data-toggle="dropdown">
-            <%= current_student.first_name %>
+            <% if student_signed_in? %>
+                <%= current_student.first_name %>
+            <% elsif admin_signed_in? %>
+                <%= current_admin.first_name %>
+            <% end %>
             <b class="caret"></b>
           </a>
 
