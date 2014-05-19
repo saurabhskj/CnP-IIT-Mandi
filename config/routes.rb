@@ -33,6 +33,7 @@ CnpWeb::Application.routes.draw do
     match '/admin/company', to: 'admin#company', via: [:get, :post]
     match '/admin/mail', to: 'admin#mail', via: [:get, :post]
     match '/admin/student', to: 'admin#student', via: [:get, :post]
+    match '/admin/reports', to: 'admin#reports', via: [:get, :post]
   end
 
 

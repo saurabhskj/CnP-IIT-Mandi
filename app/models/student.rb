@@ -2,10 +2,9 @@ class Student < User
   # attr_accessible :title, :body
   has_many :stud_comp_regs, foreign_key: :student_id, :dependent => :destroy
   has_many :companies, through: :stud_comp_regs
-
   has_many :resumes, foreign_key: :student_id, :dependent => :destroy
-
   has_one :stud_degree_info, :foreign_key => :student_id, :dependent => :destroy
+  belongs_to :year_of_graduation
 
   after_create :create_details
 
@@ -23,4 +22,12 @@ class Student < User
     end
   end
 
+  def self.to_csv(options = {})
+    CSV.generate(options) do |csv|
+      csv << column_names
+      all.each do |student|
+        csv << student.attributes.values_at(*column_names)
+      end
+    end
+  end
 end

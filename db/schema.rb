@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140507154915) do
+ActiveRecord::Schema.define(:version => 20140517210009) do
 
   create_table "admins", :force => true do |t|
     t.datetime "created_at", :null => false
@@ -111,6 +111,7 @@ ActiveRecord::Schema.define(:version => 20140507154915) do
     t.string   "enrolment_number"
     t.datetime "created_at",       :null => false
     t.datetime "updated_at",       :null => false
+    t.float    "cgpa"
   end
 
   create_table "students", :force => true do |t|
@@ -143,9 +144,16 @@ ActiveRecord::Schema.define(:version => 20140507154915) do
     t.string   "state"
     t.boolean  "perm_citz_of_india"
     t.integer  "category_id"
+    t.integer  "year_of_graduation_id"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
   add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
+
+  create_table "year_of_graduations", :force => true do |t|
+    t.integer  "year"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
 end

@@ -5,10 +5,10 @@
 </div>
 <% end %>
 
-<% if flash[:alert] %>
+<% if flash[:application_error] %>
 <div class="alert alert-error">
   <button type="button" class="close" data-dismiss="alert">&times;</button>
-  <%= flash[:alert] %>
+  <%= flash[:application_error] %>
 </div>
 <% end %>
 
@@ -37,7 +37,7 @@
           </td>
 
           <td>
-            <%= select_tag 'branch_name', options_for_select(@branch_name, @b_name), :include_blank => false%>
+            <%= select_tag 'branch_name', options_for_select(@branch_name, @b_name), :include_blank => true%>
           </td>
 
         </tr>
@@ -50,16 +50,18 @@
   <button style="margin-left: 1%;" class="btn" value="filter" name="filter" type="submit">Filter</button>
 
       <p/>
+      <br/>
       <div style="font-family: Georgia; font-size: 20px">Application Status</div>
-
       <table class="table table-striped" style="width: 100%">
         <thead>
         <tr>
-          <th>Select All</th>
+          <th>Select </th>
           <th>Company Name</th>
           <th>Enrolment Number</th>
           <th>Student Name</th>
           <th>Branch</th>
+          <th>Shortlisted</th>
+          <th>Selected</th>
         </tr>
         </thead>
 
@@ -86,12 +88,41 @@
                     <%= Branch.find(@branch_id).name %>
                 <% end %>
               </td>
+
+              <td>
+                <% if app.shortlisted.nil? %>
+                    <%= select_tag 'shortlist[]', options_for_select([["YES", "true,#{app.id}"], ["NO", "false,#{app.id}"]]), :include_blank => true %>
+                <% else %>
+                    <% if app.shortlisted == true %>
+                        <%= select_tag 'shortlist', options_for_select([["YES"], ["NO"]]), :disabled => true %>
+                    <% else %>
+                        <%= select_tag 'shortlist', options_for_select([["NO"]]), :disabled => true %>
+                    <% end %>
+                <% end %>
+              </td>
+
+              <td>
+                <% if app.selected.nil? %>
+                    <%= select_tag 'select[]', options_for_select([["YES", "true,#{app.id}"], ["NO", "false,#{app.id}"]]), :include_blank => true %>
+                <% else %>
+                    <% if app.selected == true %>
+                        <%= select_tag 'select[]', options_for_select([["YES"], ["NO"]]), :disabled => true %>
+                    <% else %>
+                        <%= select_tag 'select[]', options_for_select([["NO"]]), :disabled => true %>
+                    <% end %>
+                <% end %>
+              </td>
+
               <br/>
             </tr>
         <% end %>
         </tbody>
       </table>
 
+      <div><button style="margin-left: 0%;" class="btn" value="save_detail" name="save_detail" type="submit">Save Details</button>
+      </div>
+
+      <br/>
       <%= text_field_tag :archive_name, params[:archive_name], :placeholder => "Archive name .. " %>
       <br/>
       <%= submit_tag 'Download' %>

@@ -6,6 +6,10 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
+year_of_grads = [2013,2014,2015,2016,2017, 2018]
+year_of_grads.each do |year|
+  YearOfGraduation.create(year: year)
+end
 
 degrees = [["B.Tech", 4], ["M.S.", 2], ["P.H.D.", 5]]
 
@@ -43,21 +47,21 @@ admin_list.each do |email, password|
 end
 
 user_list = [
-    ["user@iitmandi.ac.in", "demo","9999"],
-    ["saurabh@iitmandi.ac.in", "demo","9998"],
-    ["pranav@iitmandi.ac.in", "demo","9998"],
-    ["sachin@iitmandi.ac.in", "demo","9998"],
-    ["shubham@iitmandi.ac.in", "demo","9998"]
+    ["user@iitmandi.ac.in", "demo","B11111", "9999"],
+    ["saurabh@iitmandi.ac.in", "demo","B11033","9998"],
+    ["pranav@iitmandi.ac.in", "demo","B11132","9998"],
+    ["sachin@iitmandi.ac.in", "demo","B11029","9998"],
+    ["shubham@iitmandi.ac.in", "demo","B11035","9998"]
 ]
 
-user_list.each do |email, password|
+user_list.each do |email, password, enrol|
   user = Student.new(:email => email, :password => password, :password_confirmation => password) #, name: "User")
   #user.confirmation_token = nil
   #user.skip_confirmation!
   #user.skip_confirmation_notification!
   user.save
   ContactInfo.create(user_id: user.id)
-  StudDegreeInfo.create(student_id: user.id, degree_id: 1,branch_id: 1)
+  StudDegreeInfo.create(student_id: user.id, degree_id: 1, branch_id: 1, enrolment_number: enrol)
   #user.contact_info.build.save
 end
 
